@@ -7,6 +7,12 @@
 namespace CurlingEngine
 {
 	class Entity;
+	enum class EntityType;
+
+	enum class ComponentType
+	{
+		BASE
+	};
 
 	class Component
 	{
@@ -16,9 +22,12 @@ namespace CurlingEngine
 	public:
 		Component() : m_parent(NULL) { }
 
-		void virtual Update(float dt) = 0;
+		virtual void Update(float dt) = 0;
 
-		void virtual AttachTo(Entity * ent);
+		virtual void AttachTo(Entity * ent);
+
+		//Getters
+		virtual ComponentType type() const = 0;
 	};
 }
 

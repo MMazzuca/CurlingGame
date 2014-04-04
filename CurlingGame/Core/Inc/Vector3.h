@@ -12,9 +12,9 @@ namespace CurlingEngine
 		T vals[3];
 
 	public:
-		Vector2() : vals{0, 0, 0} { }
-		Vector2(T x, T y, T z) : vals{x, y, z} { }
-		Vector2(Vector2<T> const& other) : vals{other.vals[0], other.vals[1], other.vals[2]} { }
+		Vector3() : vals[0](0), vals[1](0), vals[2](0) { }
+		Vector3(T x, T y, T z) : vals[0](x), vals[1](y), vals[2](z) { }
+		Vector3(Vector3<T> const& other) : vals[0](other.x()), vals[1](other.y()), vals[2](other.z()) { }
 
 		T x() const { return vals[0]; }
 		T y() const { return vals[1]; }
@@ -30,7 +30,7 @@ namespace CurlingEngine
 		Vector3<T> & operator+=(Vector3<T> const& other) { vals[0] += other.vals[0]; vals[1] += other.vals[1]; vals[2] += other.vals[2]; return *this; }
 		Vector3<T> & operator-=(Vector3<T> const& other) { vals[0] -= other.vals[0]; vals[1] -= other.vals[1]; vals[2] -= other.vals[2]; return *this; }
 
-		static T Dot(Vector2 const& vec1, Vector2 const& vec2) { return vec1.vals[0] * vec2.vals[0] + vec1.vals[1] * vec2.vals[1] + vec1.vals[2] * vec2.vals[2]; }
+		static T Dot(Vector3 const& vec1, Vector3 const& vec2) { return vec1.vals[0] * vec2.vals[0] + vec1.vals[1] * vec2.vals[1] + vec1.vals[2] * vec2.vals[2]; }
 	};
 
 	

@@ -4,6 +4,7 @@
 #include <cmath>
 
 namespace CurlingEngine
+{
 	template<class T>
 	class Vector2
 	{
@@ -11,9 +12,9 @@ namespace CurlingEngine
 		T vals[2];
 
 	public:
-		Vector2() : vals{0, 0} { }
-		Vector2(T x, T y) : vals{x, y} { }
-		Vector2(Vector2<T> const& other) : vals{other.vals[0], other.vals[1]} { }
+		Vector2() : vals[0](0), vals[1](0) { }
+		Vector2(T x, T y) : vals[0](x), vals[1](y) { }
+		Vector2(Vector2<T> const& other) : vals[0](other.x()), vals[1](other.y()) { }
 
 		T x() const { return _x; }
 		T y() const { return _y; }

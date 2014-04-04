@@ -5,36 +5,40 @@
 #include <ctime>
 
 #include "Component.h"
+#include "Vector3.h"
 
 namespace CurlingEngine
 {
-	class Component;
+	class Component;	
+	enum class ComponentType;
+	
+	enum class EntityType
+	{
+		BASE
+	};
 
 	class Entity
 	{
-		enum EntityType
-		{
-			BASE
-		};
-
+	private:
 		typedef std::vector<Component *> cList;
 
-	private:
 		unsigned m_id;
-		EntityType m_type;
 		cList mlist_components;
 
 	public:
-		Entity() : m_type(EntityType::BASE), m_id(std::time(NULL)), mlist_components() { } 
-		Entity(EntityType type) : m_type(type), m_id(std::time(NULL)), mlist_components() { } 
+		Entity() : m_id(std::time(NULL)), mlist_components() { } 
+		~Entity();
 
-		void virtual Update(float dt);
+		virtual void Update(float dt);
 
-		void AddComponent(Component * ptr_component);
+		int AddComponent(Component *const ptr_component);
 
 		//Getters
-		EntityType type() const { return m_type; }
+		virtual EntityType type() const = 0;
 		unsigned id() const { return m_id; }
+
+		Component * GetComponent(ComponentType type);
+
 	};
 }
 
