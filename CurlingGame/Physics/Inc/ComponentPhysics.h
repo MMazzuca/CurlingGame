@@ -1,10 +1,12 @@
 #ifndef COMPONENTPHYSIC_H
 #define COMPONENTPHYSIC_H
 
+#include "Component.h"
+
 namespace CurlingEngine
 {
 
-	class ComponentPhycis
+	class ComponentPhycis : public Component
 	{
 	};
 }

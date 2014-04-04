@@ -1,0 +1,20 @@
+﻿Build started 4/4/2014 10:05:44 AM.
+     1>Project "C:\Users\bicely\Documents\GitHub\CurlingGame\CurlingGame\Core\Core.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt source\Component.cpp source\Entity.cpp
+         Entity.cpp
+     1>c:\users\bicely\documents\github\curlinggame\curlinggame\core\inc\entity.h(28): warning C4244: 'initializing' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\bicely\documents\github\curlinggame\curlinggame\core\inc\entity.h(29): warning C4244: 'initializing' : conversion from 'time_t' to 'unsigned int', possible loss of data
+         Component.cpp
+     1>c:\users\bicely\documents\github\curlinggame\curlinggame\core\inc\entity.h(28): warning C4244: 'initializing' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\bicely\documents\github\curlinggame\curlinggame\core\inc\entity.h(29): warning C4244: 'initializing' : conversion from 'time_t' to 'unsigned int', possible loss of data
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\bicely\Documents\GitHub\CurlingGame\CurlingGame\Debug\Core.lib" /NOLOGO Debug\Component.obj
+         Debug\Entity.obj
+         Core.vcxproj -> C:\Users\bicely\Documents\GitHub\CurlingGame\CurlingGame\Debug\Core.lib
+     1>Done Building Project "C:\Users\bicely\Documents\GitHub\CurlingGame\CurlingGame\Core\Core.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.78

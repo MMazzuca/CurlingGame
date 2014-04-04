@@ -11,10 +11,14 @@ namespace CurlingEngine
 	class Component
 	{
 	private:
-		Entity m_parent;
+		Entity * m_parent;
 
 	public:
-		Component(Entity parent) : m_parent(parent) { }
+		Component() : m_parent(NULL) { }
+
+		void virtual Update(float dt) = 0;
+
+		void virtual AttachTo(Entity * ent);
 	};
 }
 
