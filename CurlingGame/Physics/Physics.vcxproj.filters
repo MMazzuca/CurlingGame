@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\CurlingGame\Vector2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\CurlingGame\Vector3.h">
+    <ClInclude Include="Inc\ComponentPhysics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
