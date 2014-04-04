@@ -4,40 +4,82 @@
 #include <vector>
 #include <ctime>
 
+#include <cassert>
+
 #include "Component.h"
 #include "Vector3.h"
 
 namespace CurlingEngine
 {
+	//forward declarations
 	class Component;	
 	enum class ComponentType;
 	
+	//Enum to differentiate types of entities
+	//Add new entity types to this list
 	enum class EntityType
 	{
 		BASE
 	};
 
+	/****************************************************************\
+	* Entity class													*
+	* Abstract class for all entities used in the game.				*
+	*																*
+	\****************************************************************/
 	class Entity
 	{
 	private:
 		typedef std::vector<Component *> cList;
 
-		unsigned m_id;
-		cList mlist_components;
+		unsigned m_id;			//unique id
+		cList mlist_components;	//vector of components
 
 	public:
+		/*****************************\
+		 * Constructors, Destructors *
+		\*****************************/
 		Entity() : m_id(std::time(NULL)), mlist_components() { } 
-		~Entity();
+		virtual ~Entity();
 
+
+		/*******************\
+		* Public Functions *
+		\*******************/
+		//Calls Update() on all Components
 		virtual void Update(float dt);
 
-		int AddComponent(Component *const ptr_component);
+		//Adds a new Component, if one of the same type doesn't already exist
+		//Trying out this template version, should work as long as T inherits from Component and this way
+		//This makes for clearier memory management since the Component is created and destroyed by the Entity class.
+		template<class T>
+		Component * AddComponent<T>()
+		{
+			Component * ptr_component = new T();
 
-		//Getters
+			//If AddComponent does not return 0, then clean up memory
+			if (AddComponent(ptr_component))
+				delete ptr_component;
+
+			return ptr_component;
+		}
+
+
+		/*******************\
+		* Getters, Setters *
+		\*******************/
 		virtual EntityType type() const = 0;
 		unsigned id() const { return m_id; }
 
 		Component * GetComponent(ComponentType type);
+
+	private:
+
+		/********************\
+		* Private Functions *
+		\********************/
+		//Helper function for AddComponent<T>()
+		int AddComponent(Component *const ptr_component);
 
 	};
 }

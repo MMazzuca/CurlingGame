@@ -6,27 +6,48 @@
 
 namespace CurlingEngine
 {
+	//forward declarations
 	class Entity;
 	enum class EntityType;
 
+	//Enum to differentiate types of components
+	//Add new component types to this list
 	enum class ComponentType
 	{
 		BASE
 	};
 
+	/****************************************************************\
+	* Component class												*
+	* Abstract class for all components attached to Entities.		*
+	*																*
+	\****************************************************************/
 	class Component
 	{
 	private:
-		Entity * m_parent;
+		Entity * mptr_parent;	//Entity this Component is attached to
 
 	public:
-		Component() : m_parent(NULL) { }
+		/*****************************\
+		* Constructors, Destructors *
+		\*****************************/
+		Component() : mptr_parent(NULL) { }
+		virtual ~Component();
 
+
+		/*******************\
+		* Public Functions *
+		\*******************/
+		//Called each update by the parent Entity
 		virtual void Update(float dt) = 0;
 
+		//Attaches this Component to an Entity
 		virtual void AttachTo(Entity * ent);
 
-		//Getters
+
+		/*******************\
+		* Getters, Setters *
+		\*******************/
 		virtual ComponentType type() const = 0;
 	};
 }
