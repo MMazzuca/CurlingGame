@@ -10,6 +10,9 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{58A3ECB5-7A38-4979-9F5A-1E55E3B59DB0}</ProjectGuid>
     <RootNamespace>CurlingGame</RootNamespace>
