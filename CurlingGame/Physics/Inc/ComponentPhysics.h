@@ -20,7 +20,7 @@ namespace CurlingEngine
 		/*****************************\
 		* Constructors, Destructors *
 		\*****************************/
-		ComponentPhysics() : m_massmvec_vel(0, 0, 0), mvec_force(0, 0, 0), mcpt_position(NULL) { }
+		ComponentPhysics() : m_mass(0), mvec_vel(0, 0, 0), mvec_force(0, 0, 0), mcpt_position(NULL) { }
 		~ComponentPhysics() { }
 		
 		
@@ -36,6 +36,10 @@ namespace CurlingEngine
 		ComponentType type() const { return ComponentType::PHYSICS; }
 		static ComponentType sType() { return ComponentType::PHYSICS; }
 		
+		//mass
+		float mass() { return m_mass; }
+		float mass(float mass) { return m_mass = mass; } 
+
 		//velocity
 		Vector3<float> & vel() { return mvec_vel; }
 		Vector3<float> const& vel() const { return mvec_vel; }

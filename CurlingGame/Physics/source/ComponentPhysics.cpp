@@ -11,6 +11,11 @@ void ComponentPhysics::Update(float dt)
 {
 	assert(NULL != mcpt_position);
 	mcpt_position->pos() += mvec_vel * dt;
+
+	if(m_mass > 0  && mvec_force.sqrMagnitude() > 0)
+	{
+		mvec_vel += mvec_force / m_mass;
+	}
 }
 
 /****************************************************************\
