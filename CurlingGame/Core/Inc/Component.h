@@ -14,8 +14,11 @@ namespace CurlingEngine
 	//Add new component types to this list
 	enum class ComponentType
 	{
-		BASE
+		BASE,
+		POSITION,
+		PHYSICS
 	};
+
 
 	/****************************************************************\
 	* Component class												*
@@ -26,6 +29,18 @@ namespace CurlingEngine
 	{
 	private:
 		Entity * mptr_parent;	//Entity this Component is attached to
+
+
+		/*********************\
+		* Abstract Fucntions *
+		\*********************/
+	public:
+		virtual void Update(float dt) = 0; //Called each update by the parent Entity
+		virtual ComponentType type() const = 0;  //Returns Type of the component
+	protected:
+		//This function should call CheckDependency<T>() for each component this one is dependent upon
+		virtual void CheckDependencies() = 0;
+
 
 	public:
 		/*****************************\
@@ -38,9 +53,6 @@ namespace CurlingEngine
 		/*******************\
 		* Public Functions *
 		\*******************/
-		//Called each update by the parent Entity
-		virtual void Update(float dt) = 0;
-
 		//Attaches this Component to an Entity
 		virtual void AttachTo(Entity * ent);
 
@@ -48,7 +60,26 @@ namespace CurlingEngine
 		/*******************\
 		* Getters, Setters *
 		\*******************/
-		virtual ComponentType type() const = 0;
+		static ComponentType sType() { return ComponentType::BASE; }
+
+		Entity * parent() { return mptr_parent; }
+		Entity const* parent() const { return mptr_parent; }
+		
+
+	protected:
+		//Helper function for CheckDependencies().  Checks if a component of class T exists on the parent entity.
+		//If the component dose not exist, it is added.
+		template<class T>
+		T * CheckDependency()
+		{
+			T * compt;
+			compt = static_cast<T *>( parent()->GetComponent<T>() );
+			if(NULL == compt)
+			{
+				compt = static_cast<T *>(parent()->AddComponent<T>());
+			}
+			return compt;
+		}
 	};
 }
 

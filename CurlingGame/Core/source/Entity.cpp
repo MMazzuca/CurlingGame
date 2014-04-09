@@ -51,7 +51,18 @@ Component * Entity::GetComponent(ComponentType type)
 
 	return ptr_cmpt;
 }
+Component const* Entity::GetComponent(ComponentType type) const
+{
+	Component const* ptr_cmpt = NULL;
 
+	for(cList::const_iterator it = mlist_components.cbegin(); NULL == ptr_cmpt && it != mlist_components.cend(); ++it)
+	{
+		if(type == (*it)->type())
+			ptr_cmpt = *it;
+	}
+
+	return ptr_cmpt;
+}
 
 /****************************************************************\
 * AddComponent													*

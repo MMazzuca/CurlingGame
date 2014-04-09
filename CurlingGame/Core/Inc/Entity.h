@@ -59,7 +59,10 @@ namespace CurlingEngine
 
 			//If AddComponent does not return 0, then clean up memory
 			if (AddComponent(ptr_component))
+			{
 				delete ptr_component;
+				ptr_component = NULL;
+			}
 
 			return ptr_component;
 		}
@@ -71,13 +74,30 @@ namespace CurlingEngine
 		virtual EntityType type() const = 0;
 		unsigned id() const { return m_id; }
 
-		Component * GetComponent(ComponentType type);
+		template<class T>
+		Component * GetComponent()
+		{
+			Component * ptr_component;
+			ptr_component = GetComponent(T::sType());
+			return ptr_component;
+		}
+		template<class T>
+		Component const* GetComponent() const
+		{
+			Component const* ptr_component;
+			ptr_component = GetComponent(T::sType());
+			return ptr_component;
+		}
 
 	private:
 
 		/********************\
 		* Private Functions *
 		\********************/
+		//Helper functions for GetComponent<T>()
+		Component * GetComponent(ComponentType type);
+		Component const* GetComponent(ComponentType type) const;
+
 		//Helper function for AddComponent<T>()
 		int AddComponent(Component *const ptr_component);
 

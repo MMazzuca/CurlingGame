@@ -19,4 +19,5 @@ Component::~Component()
 void Component::AttachTo(Entity * ent)
 {
 	mptr_parent = ent;
+	CheckDependencies();
 }

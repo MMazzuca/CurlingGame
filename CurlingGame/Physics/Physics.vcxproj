@@ -13,6 +13,9 @@
   <ItemGroup>
     <ClInclude Include="Inc\ComponentPhysics.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\ComponentPhysics.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{84289798-EBD8-4884-8B51-3F3B65B2A2D3}</ProjectGuid>
     <RootNamespace>Physics</RootNamespace>
@@ -42,10 +45,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)..\Core\inc\;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Inc;$(ProjectDir)..\Core\inc\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(ProjectDir)..\Core\inc\;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Inc;$(ProjectDir)..\Core\inc\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

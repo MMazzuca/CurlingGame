@@ -12,8 +12,8 @@ namespace CurlingEngine
 		T vals[3];
 
 	public:
-		Vector3() : vals[0](0), vals[1](0), vals[2](0) { }
-		Vector3(T x, T y, T z) : vals[0](x), vals[1](y), vals[2](z) { }
+		Vector3() { vals = { 0, 0, 0}; }
+		Vector3(T x, T y, T z) { vals[0] = x; vals[1] = y; vals[2] = z; }
 		Vector3(Vector3<T> const& other) : vals[0](other.x()), vals[1](other.y()), vals[2](other.z()) { }
 
 		T x() const { return vals[0]; }

@@ -1,13 +1,54 @@
-#ifndef COMPONENTPHYSIC_H
-#define COMPONENTPHYSIC_H
+#ifndef COMPONENTPHYSICS_H
+#define COMPONENTPHYSICS_H
 
 #include "Component.h"
+#include "ComponentPosition.h"
+#include "Vector3.h"
 
 namespace CurlingEngine
 {
 
-	class ComponentPhycis : public Component
+	class ComponentPhysics : public Component
 	{
+	private:
+		float m_mass;
+		Vector3<float> mvec_vel;
+		Vector3<float> mvec_force;
+		ComponentPosition * mcpt_position;
+
+	public:
+		/*****************************\
+		* Constructors, Destructors *
+		\*****************************/
+		ComponentPhysics() : m_massmvec_vel(0, 0, 0), mvec_force(0, 0, 0), mcpt_position(NULL) { }
+		~ComponentPhysics() { }
+		
+		
+		/*******************\
+		* Public Functions *
+		\*******************/
+		//Called each update by the parent Entity
+		void Update(float dt);
+
+		/*******************\
+		* Getters, Setters *
+		\*******************/
+		ComponentType type() const { return ComponentType::PHYSICS; }
+		static ComponentType sType() { return ComponentType::PHYSICS; }
+		
+		//velocity
+		Vector3<float> & vel() { return mvec_vel; }
+		Vector3<float> const& vel() const { return mvec_vel; }
+		Vector3<float> & vel(Vector3<float> const& vel) { return mvec_vel = vel; }
+
+		//force
+		Vector3<float> & force() { return mvec_force; }
+		Vector3<float> const& force() const { return mvec_force; }
+		Vector3<float> & force(Vector3<float> const& force) { return mvec_force = force; }
+
+	protected:
+		void checkDependencies();
+		
 	};
 }
 
