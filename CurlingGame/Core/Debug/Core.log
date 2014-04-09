@@ -1,55 +1,18 @@
-﻿Build started 08/04/2014 2:23:47 PM.
-     1>Project "C:\Users\bagenoxu\Documents\GitHub\CurlingGame\CurlingGame\Core\Core.vcxproj" on node 2 (Build target(s)).
+﻿Build started 4/9/2014 8:15:02 AM.
+     1>Project "C:\Users\bicely\Documents\GitHub\CurlingGame\CurlingGame\Core\Core.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt source\Component.cpp source\Entity.cpp
          Entity.cpp
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(56): error C2143: syntax error : missing ';' before '<'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(56): error C2238: unexpected token(s) preceding ';'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(56): error C2988: unrecognizable template declaration/definition
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(56): error C2059: syntax error : '<'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(71): error C2238: unexpected token(s) preceding ';'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(72): error C2988: unrecognizable template declaration/definition
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(72): error C2059: syntax error : 'return'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(72): error C2238: unexpected token(s) preceding ';'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(74): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(42): warning C4244: 'initializing' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(76): error C2988: unrecognizable template declaration/definition
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(76): error C2059: syntax error : 'private'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(85): error C2988: unrecognizable template declaration/definition
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(85): error C2059: syntax error : '}'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(85): error C2143: syntax error : missing ';' before '}'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\source\entity.cpp(8): error C2653: 'Entity' : is not a class or namespace name
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\source\entity.cpp(8): fatal error C1903: unable to recover from previous error(s); stopping compilation
-         Component.cpp
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(56): error C2143: syntax error : missing ';' before '<'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(56): error C2238: unexpected token(s) preceding ';'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(56): error C2988: unrecognizable template declaration/definition
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(56): error C2059: syntax error : '<'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(71): error C2238: unexpected token(s) preceding ';'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(72): error C2988: unrecognizable template declaration/definition
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(72): error C2059: syntax error : 'return'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(72): error C2238: unexpected token(s) preceding ';'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(74): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(42): warning C4244: 'initializing' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(76): error C2988: unrecognizable template declaration/definition
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(76): error C2059: syntax error : 'private'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(85): error C2988: unrecognizable template declaration/definition
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(85): error C2059: syntax error : '}'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(85): error C2143: syntax error : missing ';' before '}'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\component.h(8): error C2143: syntax error : missing ';' before '{'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\component.h(8): error C2447: '{' : missing function header (old-style formal list?)
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\source\component.cpp(8): error C2039: '{dtor}' : is not a member of 'CurlingEngine::Component'
-                 c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(15) : see declaration of 'CurlingEngine::Component'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\source\component.cpp(8): error C2988: unrecognizable template declaration/definition
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\source\component.cpp(8): error C2059: syntax error : ')'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\source\component.cpp(9): error C2143: syntax error : missing ';' before '{'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\source\component.cpp(9): error C2447: '{' : missing function header (old-style formal list?)
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\source\component.cpp(19): error C2039: 'AttachTo' : is not a member of 'CurlingEngine::Component'
-                 c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\inc\entity.h(15) : see declaration of 'CurlingEngine::Component'
-     1>c:\users\bagenoxu\documents\github\curlinggame\curlinggame\core\source\component.cpp(21): error C2065: 'mptr_parent' : undeclared identifier
          Generating Code...
-     1>Done Building Project "C:\Users\bagenoxu\Documents\GitHub\CurlingGame\CurlingGame\Core\Core.vcxproj" (Build target(s)) -- FAILED.
+         Compiling...
+         Component.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\bicely\Documents\GitHub\CurlingGame\CurlingGame\Debug\Core.lib" /NOLOGO Debug\Component.obj
+         Debug\Entity.obj
+         Core.vcxproj -> C:\Users\bicely\Documents\GitHub\CurlingGame\CurlingGame\Debug\Core.lib
+     1>Done Building Project "C:\Users\bicely\Documents\GitHub\CurlingGame\CurlingGame\Core\Core.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:00.47
+Time Elapsed 00:00:00.95

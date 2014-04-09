@@ -39,7 +39,7 @@ namespace CurlingEngine
 		/*****************************\
 		 * Constructors, Destructors *
 		\*****************************/
-		Entity() : m_id(std::time(NULL)), mlist_components() { } 
+		Entity() : m_id(static_cast<unsigned>(std::time(NULL))), mlist_components() { } 
 		virtual ~Entity();
 
 
@@ -53,7 +53,7 @@ namespace CurlingEngine
 		//Trying out this template version, should work as long as T inherits from Component and this way
 		//This makes for clearier memory management since the Component is created and destroyed by the Entity class.
 		template<class T>
-		Component * AddComponent<T>()
+		Component * AddComponent()
 		{
 			Component * ptr_component = new T();
 
