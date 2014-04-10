@@ -27,10 +27,7 @@ void PhysicsDemo::ShutdownPhysics() {
 	void PhysicsDemo::CreateObjects() {
 
 	// create a ground plane
-	CreateGameObject(new btBoxShape(btVector3(1,50,50)), 0, btVector3(0.2f, 0.6f, 0.6f), btVector3(0.0f, 0.0f, 0.0f));
+		CreateGameObject(new btBoxShape(btVector3(1,25,100)), 0, btVector3(0.2f, 0.6f, 0.6f), btVector3(0.0f, 0.0f, 0.0f));
 	// create our original red box
-	CreateGameObject(new btBoxShape(btVector3(1,1,1)), 1.0, btVector3(1.0f, 0.2f, 0.2f), btVector3(0.0f, 10.0f, 0.0f));
-	// create a second box
-	CreateGameObject(new btBoxShape(btVector3(1,1,1)), 1.0, btVector3(0.0f, 0.2f, 0.8f), btVector3(1.25f, 20.0f, 0.0f));
-		
+		CreateGameObject(new btBoxShape(btVector3(1,1,1)), 0, btVector3(1.0f, 0.0f, 0.0f), btVector3(0.0f, 1.0f, 0.0f));
 	}
