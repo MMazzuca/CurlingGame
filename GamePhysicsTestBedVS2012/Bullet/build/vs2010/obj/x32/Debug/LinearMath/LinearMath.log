@@ -1,0 +1,9 @@
+﻿Build started 3/25/2014 10:10:08 AM.
+     1>Project "C:\Users\Archimedes\Desktop\GamePhysicsTestBedVS2012\Bullet\build\vs2010\LinearMath.vcxproj" on node 3 (Build target(s)).
+     1>Lib:
+         LinearMath.vcxproj -> C:\Users\Archimedes\Desktop\GamePhysicsTestBedVS2012\Bullet\build\vs2010\..\..\lib\LinearMath_vs2010_debug.lib
+     1>Done Building Project "C:\Users\Archimedes\Desktop\GamePhysicsTestBedVS2012\Bullet\build\vs2010\LinearMath.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.10
