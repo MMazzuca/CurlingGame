@@ -1,0 +1,35 @@
+﻿Build started 3/25/2014 10:10:49 AM.
+     1>Project "C:\Users\Archimedes\Desktop\GamePhysicsTestBedVS2012\FreeGLUT\VisualStudio\2012\freeglut.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\lib\x86\Debug\freeglut.dll" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"..\..\src\freeglutdll.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\..\lib\x86\Debug\freeglut.pdb" /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"..\..\lib\x86\Debug\freeglut.lib" /MACHINE:X86 /SAFESEH /DLL build\Debug\Win32_v110\freeglut.res
+         build\Debug\Win32_v110\freeglut_callbacks.obj
+         build\Debug\Win32_v110\freeglut_cursor.obj
+         build\Debug\Win32_v110\freeglut_display.obj
+         build\Debug\Win32_v110\freeglut_ext.obj
+         build\Debug\Win32_v110\freeglut_font.obj
+         build\Debug\Win32_v110\freeglut_font_data.obj
+         build\Debug\Win32_v110\freeglut_gamemode.obj
+         build\Debug\Win32_v110\freeglut_geometry.obj
+         build\Debug\Win32_v110\freeglut_glutfont_definitions.obj
+         build\Debug\Win32_v110\freeglut_init.obj
+         build\Debug\Win32_v110\freeglut_input_devices.obj
+         build\Debug\Win32_v110\freeglut_joystick.obj
+         build\Debug\Win32_v110\freeglut_main.obj
+         build\Debug\Win32_v110\freeglut_menu.obj
+         build\Debug\Win32_v110\freeglut_misc.obj
+         build\Debug\Win32_v110\freeglut_overlay.obj
+         build\Debug\Win32_v110\freeglut_spaceball.obj
+         build\Debug\Win32_v110\freeglut_state.obj
+         build\Debug\Win32_v110\freeglut_stroke_mono_roman.obj
+         build\Debug\Win32_v110\freeglut_stroke_roman.obj
+         build\Debug\Win32_v110\freeglut_structure.obj
+         build\Debug\Win32_v110\freeglut_teapot.obj
+         build\Debug\Win32_v110\freeglut_videoresize.obj
+         build\Debug\Win32_v110\freeglut_window.obj
+            Creating library ..\..\lib\x86\Debug\freeglut.lib and object ..\..\lib\x86\Debug\freeglut.exp
+         freeglut.vcxproj -> C:\Users\Archimedes\Desktop\GamePhysicsTestBedVS2012\FreeGLUT\VisualStudio\2012\..\..\lib\x86\Debug\freeglut.dll
+     1>Done Building Project "C:\Users\Archimedes\Desktop\GamePhysicsTestBedVS2012\FreeGLUT\VisualStudio\2012\freeglut.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.35

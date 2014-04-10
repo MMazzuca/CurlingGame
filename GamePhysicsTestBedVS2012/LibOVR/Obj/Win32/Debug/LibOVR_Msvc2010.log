@@ -1,0 +1,84 @@
+﻿Build started 2/18/2014 7:48:42 AM.
+     1>Project "C:\Users\Archimedes\Desktop\GamePhysics2005\LibOVR\Projects\Win32\LibOVR_Msvc2010.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "../../Obj/Win32/Debug/LibOVR.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "../../Obj/Win32/Debug/LibOVR.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Z7 /nologo /W4 /WX- /MP /Od /Oy- /D OVR_BUILD_DEBUG /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"../../Obj/Win32/Debug/" /Fd"../../Obj/Win32/Debug/vc100.pdb" /Gd /TP /analyze- /Zl /errorReport:prompt ..\..\Src\Kernel\OVR_Alg.cpp ..\..\Src\Kernel\OVR_Allocator.cpp ..\..\Src\Kernel\OVR_Atomic.cpp ..\..\Src\Kernel\OVR_File.cpp ..\..\Src\Kernel\OVR_FileFILE.cpp ..\..\Src\Kernel\OVR_Log.cpp ..\..\Src\Kernel\OVR_Math.cpp ..\..\Src\Kernel\OVR_RefCount.cpp ..\..\Src\Kernel\OVR_Std.cpp ..\..\Src\Kernel\OVR_String.cpp ..\..\Src\Kernel\OVR_String_FormatUtil.cpp ..\..\Src\Kernel\OVR_String_PathUtil.cpp ..\..\Src\Kernel\OVR_SysFile.cpp ..\..\Src\Kernel\OVR_System.cpp ..\..\Src\Kernel\OVR_ThreadsWinAPI.cpp ..\..\Src\Kernel\OVR_Timer.cpp ..\..\Src\Kernel\OVR_UTF8Util.cpp ..\..\Src\OVR_DeviceHandle.cpp ..\..\Src\OVR_DeviceImpl.cpp ..\..\Src\OVR_JSON.cpp ..\..\Src\OVR_LatencyTestImpl.cpp ..\..\Src\OVR_Profile.cpp ..\..\Src\OVR_SensorFilter.cpp ..\..\Src\OVR_SensorFusion.cpp ..\..\Src\OVR_SensorImpl.cpp ..\..\Src\OVR_ThreadCommandQueue.cpp ..\..\Src\OVR_Win32_DeviceManager.cpp ..\..\Src\OVR_Win32_DeviceStatus.cpp ..\..\Src\OVR_Win32_HIDDevice.cpp ..\..\Src\OVR_Win32_HMDDevice.cpp ..\..\Src\Util\Util_LatencyTest.cpp ..\..\Src\OVR_Win32_SensorDevice.cpp ..\..\Src\Util\Util_Render_Stereo.cpp
+         OVR_Alg.cpp
+         OVR_Allocator.cpp
+         OVR_Atomic.cpp
+         OVR_File.cpp
+         OVR_FileFILE.cpp
+         OVR_Log.cpp
+         OVR_Math.cpp
+         OVR_RefCount.cpp
+         OVR_Std.cpp
+         OVR_String.cpp
+         OVR_String_FormatUtil.cpp
+         OVR_String_PathUtil.cpp
+         OVR_SysFile.cpp
+         OVR_System.cpp
+         OVR_ThreadsWinAPI.cpp
+         OVR_Timer.cpp
+         OVR_UTF8Util.cpp
+         OVR_DeviceHandle.cpp
+         OVR_DeviceImpl.cpp
+         OVR_JSON.cpp
+         OVR_LatencyTestImpl.cpp
+         OVR_Profile.cpp
+         OVR_SensorFilter.cpp
+         OVR_SensorFusion.cpp
+         OVR_SensorImpl.cpp
+         OVR_ThreadCommandQueue.cpp
+         OVR_Win32_DeviceManager.cpp
+         OVR_Win32_DeviceStatus.cpp
+         OVR_Win32_HIDDevice.cpp
+         OVR_Win32_HMDDevice.cpp
+         Util_LatencyTest.cpp
+         OVR_Win32_SensorDevice.cpp
+         Util_Render_Stereo.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"../../Lib/Win32/libovrd.lib" Setupapi.lib /NOLOGO ../../Obj/Win32/Debug/OVR_Alg.obj
+         ../../Obj/Win32/Debug/OVR_Allocator.obj
+         ../../Obj/Win32/Debug/OVR_Atomic.obj
+         ../../Obj/Win32/Debug/OVR_File.obj
+         ../../Obj/Win32/Debug/OVR_FileFILE.obj
+         ../../Obj/Win32/Debug/OVR_Log.obj
+         ../../Obj/Win32/Debug/OVR_Math.obj
+         ../../Obj/Win32/Debug/OVR_RefCount.obj
+         ../../Obj/Win32/Debug/OVR_Std.obj
+         ../../Obj/Win32/Debug/OVR_String.obj
+         ../../Obj/Win32/Debug/OVR_String_FormatUtil.obj
+         ../../Obj/Win32/Debug/OVR_String_PathUtil.obj
+         ../../Obj/Win32/Debug/OVR_SysFile.obj
+         ../../Obj/Win32/Debug/OVR_System.obj
+         ../../Obj/Win32/Debug/OVR_ThreadsWinAPI.obj
+         ../../Obj/Win32/Debug/OVR_Timer.obj
+         ../../Obj/Win32/Debug/OVR_UTF8Util.obj
+         ../../Obj/Win32/Debug/OVR_DeviceHandle.obj
+         ../../Obj/Win32/Debug/OVR_DeviceImpl.obj
+         ../../Obj/Win32/Debug/OVR_JSON.obj
+         ../../Obj/Win32/Debug/OVR_LatencyTestImpl.obj
+         ../../Obj/Win32/Debug/OVR_Profile.obj
+         ../../Obj/Win32/Debug/OVR_SensorFilter.obj
+         ../../Obj/Win32/Debug/OVR_SensorFusion.obj
+         ../../Obj/Win32/Debug/OVR_SensorImpl.obj
+         ../../Obj/Win32/Debug/OVR_ThreadCommandQueue.obj
+         ../../Obj/Win32/Debug/OVR_Win32_DeviceManager.obj
+         ../../Obj/Win32/Debug/OVR_Win32_DeviceStatus.obj
+         ../../Obj/Win32/Debug/OVR_Win32_HIDDevice.obj
+         ../../Obj/Win32/Debug/OVR_Win32_HMDDevice.obj
+         ../../Obj/Win32/Debug/Util_LatencyTest.obj
+         ../../Obj/Win32/Debug/OVR_Win32_SensorDevice.obj
+         ../../Obj/Win32/Debug/Util_Render_Stereo.obj
+         LibOVR_Msvc2010.vcxproj -> C:\Users\Archimedes\Desktop\GamePhysics2005\LibOVR\Projects\Win32\../../Lib/Win32/libovrd.lib
+       FinalizeBuildStatus:
+         Deleting file "../../Obj/Win32/Debug/LibOVR.unsuccessfulbuild".
+         Touching "../../Obj/Win32/Debug/LibOVR.lastbuildstate".
+     1>Done Building Project "C:\Users\Archimedes\Desktop\GamePhysics2005\LibOVR\Projects\Win32\LibOVR_Msvc2010.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.53
