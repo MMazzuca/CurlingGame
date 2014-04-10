@@ -10,6 +10,15 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+<<<<<<< HEAD:GamePhysicsTestBedVS2012/GamePhysicsTestBedVS2012/GamePhysicsTestBedVS2012.vcxproj
+=======
+  <ItemGroup>
+    <ClInclude Include="Inc\ComponentPhysics.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\ComponentPhysics.cpp" />
+  </ItemGroup>
+>>>>>>> 0c6d9320eb02853d38db8eddbde8f2f5516b3c40:CurlingGame/Physics/Physics.vcxproj
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8BBC8839-373D-4321-821D-E8392A229EF4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -40,12 +49,19 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+<<<<<<< HEAD:GamePhysicsTestBedVS2012/GamePhysicsTestBedVS2012/GamePhysicsTestBedVS2012.vcxproj
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryWPath>$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+=======
+    <IncludePath>$(ProjectDir)Inc;$(ProjectDir)..\Core\inc\;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(ProjectDir)Inc;$(ProjectDir)..\Core\inc\;$(IncludePath)</IncludePath>
+>>>>>>> 0c6d9320eb02853d38db8eddbde8f2f5516b3c40:CurlingGame/Physics/Physics.vcxproj
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
