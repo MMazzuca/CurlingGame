@@ -6,6 +6,7 @@
 #include <GL/freeglut.h>
 #include <iostream>
 #include "OVR.h"
+#include <ctime>
 
 #include "BulletDynamics/Dynamics/btDynamicsWorld.h"
 
@@ -27,6 +28,17 @@ using namespace OVR;
 
 class GamePhysicsTestBed {
 public:
+	enum GameState
+	{
+		START,
+		PLANING,
+		SHOOTING,
+		SWEEPING,
+		SCORING,
+		END
+	};
+
+
 	GamePhysicsTestBed();
 	~GamePhysicsTestBed();
 	void Initialize();
@@ -85,6 +97,10 @@ public:
 			void CreatePickingConstraint(int x, int y);
 			void RemovePickingConstraint();
 
+
+			//State Machine
+			void ChangeState(GameState newState);
+
 protected:
 	// ADDED TO TODAY'S LECTURE STEP 8 CONSTRAINT VARIABLES
 			btRigidBody* m_pPickedBody;				// the body we picked up
@@ -106,6 +122,8 @@ protected:
 	int m_shootAimMaxYaw;
 	int m_shootAimMinYaw;
 	float m_shootPower;
+	std::clock_t m_shootPowerStart;
+	GameState curGameState;
 
 	int m_screenWidth;
 	int m_screenHeight;

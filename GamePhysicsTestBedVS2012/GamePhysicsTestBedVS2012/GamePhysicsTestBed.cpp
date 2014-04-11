@@ -26,7 +26,8 @@ m_shootAim(false),
 m_mouseAimStartX(0),
 m_shootAimMaxYaw(10),
 m_shootAimMinYaw(-10),
-m_shootPower(0)
+m_shootPower(0),
+curGameState(GameState::START)
 {
 }
 
@@ -82,30 +83,6 @@ void GamePhysicsTestBed::Keyboard(unsigned char key, int x, int y) {
 		///'x' zoom out
 	case 'x': ZoomCamera(-CAMERA_STEP_SIZE); break;
 
-	// added in today's lecture step 3
-	//case 'b':
-	//				{
-	//			// create a temp object to store the raycast result
-	//			RayResult result;
-	//			// perform the raycast
-	//			if (!Raycast(m_cameraPosition, GetPickingRay(x, y), result))
-	//				return; // return if the test failed
-	//			// destroy the corresponding game object
-	//			DestroyGameObject(result.pBody);
-	//			break;
-	//		}
-	//	break;
-	//case 'd':
- //		{
- //			// create a temp object to store the raycast result
- //			RayResult result;
- //			// perform the raycast
- //			if (!Raycast(m_cameraPosition, GetPickingRay(x, y), result))
- //				return; // return if the test failed
- //			// destroy the corresponding game object
- //			DestroyGameObject(result.pBody);
- //			break;
- //		}
 	}
 }
 
@@ -182,10 +159,13 @@ void GamePhysicsTestBed::Mouse(int button, int state, int x, int y)
 			{
 				if (state == 0)
 				{
-					ShootBox(GetPickingRay(m_screenWidth * 0.5f, m_screenWidth * 0.5f));
+					m_shootPower = 0;
+					m_shootPowerStart = std::clock();
 				}
 				else
 				{
+					m_shootPower = (std::clock() - m_shootPowerStart) / static_cast<float>(CLOCKS_PER_SEC);
+					ShootBox(GetPickingRay(m_screenWidth * 0.5f, m_screenWidth * 0.5f));
 				}
 				break;
 			}
@@ -550,6 +530,21 @@ void GamePhysicsTestBed::ZoomCamera(float distance) {
 			// determined back in ::Idle() by our clock object.
 			m_pWorld->stepSimulation(dt);
 		}
+
+		switch(curGameState)
+		{
+		case GameState::START:
+			break;
+		case GameState::END:
+			break;
+		case GameState::PLANING:
+			break;
+		case GameState::SHOOTING:
+			break;
+		case GameState::SWEEPING:
+			break;
+		}
+
 	}
 	void GamePhysicsTestBed::DrawShape(btScalar* transform, const btCollisionShape* pShape, const btVector3 &color) {
 	// set the color
