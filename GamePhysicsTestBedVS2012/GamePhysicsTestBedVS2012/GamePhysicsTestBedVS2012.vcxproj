@@ -41,8 +41,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\OpenAlSoftSetup\OpenAlSoft\include\AL;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\LibOVR\Include;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\FreeGLUT\include\GL;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\Bullet\src;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\ALSound\OpenAlSoft\include\AL;$(IncludePath)</IncludePath>
-    <LibraryWPath>C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\OpenAlSoftSetup\OpenAlSoft\lib\Win32;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\LibOVR\Lib\Win32;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\FreeGLUT\lib\x86\Debug;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\Bullet\lib;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\ALSound\OpenAlSoft\lib\Win32;$(LibraryWPath)</LibraryWPath>
+    <IncludePath>$(ProjectDir)..\OpenAlSoftSetup\OpenAlSoft\include\AL;$(ProjectDir)..\LibOVR\Include;$(ProjectDir)..\FreeGLUT\include\GL;$(ProjectDir)..\Bullet\src;$(ProjectDir)..\ALSound\OpenAlSoft\include\AL;$(IncludePath)</IncludePath>
+    <LibraryWPath>$(ProjectDir)..\OpenAlSoftSetup\OpenAlSoft\lib\Win32;$(ProjectDir)..\LibOVR\Lib\Win32;$(ProjectDir)..\FreeGLUT\lib\x86\Debug;$(ProjectDir)..\Bullet\lib;$(ProjectDir)..\ALSound\OpenAlSoft\lib\Win32;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>

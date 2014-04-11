@@ -1,5 +1,5 @@
-﻿Build started 10/04/2014 9:34:40 AM.
-     1>Project "C:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Bullet\build\vs2010\LinearMath.vcxproj" on node 2 (Build target(s)).
+﻿Build started 4/11/2014 8:14:16 AM.
+     1>Project "C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Bullet\build\vs2010\LinearMath.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\src /Zi /nologo /W3 /WX- /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _HAS_EXCEPTIONS=0 /D _MBCS /Gm- /RTC1 /MTd /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"obj\x32\Debug\LinearMath\\" /Fd"..\..\lib\LinearMath_vs2010_debug.pdb" /Gd /TP /analyze- /errorReport:prompt /MP ..\..\src\LinearMath\btAlignedAllocator.cpp ..\..\src\LinearMath\btConvexHull.cpp ..\..\src\LinearMath\btConvexHullComputer.cpp ..\..\src\LinearMath\btGeometryUtil.cpp ..\..\src\LinearMath\btPolarDecomposition.cpp ..\..\src\LinearMath\btQuickprof.cpp ..\..\src\LinearMath\btSerializer.cpp ..\..\src\LinearMath\btVector3.cpp
          btAlignedAllocator.cpp
@@ -21,9 +21,9 @@
          obj\x32\Debug\LinearMath\btQuickprof.obj
          obj\x32\Debug\LinearMath\btSerializer.obj
          obj\x32\Debug\LinearMath\btVector3.obj
-         LinearMath.vcxproj -> C:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Bullet\build\vs2010\..\..\lib\LinearMath_vs2010_debug.lib
-     1>Done Building Project "C:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Bullet\build\vs2010\LinearMath.vcxproj" (Build target(s)).
+         LinearMath.vcxproj -> C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Bullet\build\vs2010\..\..\lib\LinearMath_vs2010_debug.lib
+     1>Done Building Project "C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Bullet\build\vs2010\LinearMath.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.07
+Time Elapsed 00:00:00.74

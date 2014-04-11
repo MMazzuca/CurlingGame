@@ -27,12 +27,12 @@ void PhysicsDemo::ShutdownPhysics() {
 	void PhysicsDemo::CreateObjects() {
 
 	// create a ground plane
-		CreateGameObject(new btBoxShape(btVector3(1,25,100)), 0, btVector3(0.2f, 0.6f, 0.6f), btVector3(0.0f, 0.0f, 0.0f));
+		CreateGameObject(new btBoxShape(btVector3(1,12,100)), 0, btVector3(0.2f, 0.6f, 0.6f), btVector3(0.0f, 0.0f, 0.0f));
 
 		//Walls of the playing field
-		CreateGameObject(new btBoxShape(btVector3(4.0,1,100)), 0, btVector3(1.0f, 1.0f, 1.0f), btVector3(5.0f, 1.0f, 0.0f));
+		//CreateGameObject(new btBoxShape(btVector3(4.0,1,100)), 0, btVector3(1.0f, 1.0f, 1.0f), btVector3(5.0f, 1.0f, 0.0f));
 
-		CreateGameObject(new btBoxShape(btVector3(4.0,1,100)), 0, btVector3(1.0f, 1.0f, 1.0f), btVector3(-5.0f, 1.0f, 0.0f));
+		//CreateGameObject(new btBoxShape(btVector3(4.0,1,100)), 0, btVector3(1.0f, 1.0f, 1.0f), btVector3(-5.0f, 1.0f, 0.0f));
 
 		CreateGameObject(new btBoxShape(btVector3(4.0, 4.0, 1)), 0, btVector3(1.0f, 1.0f, 1.0f), btVector3(0.0f, 1.0f, 100.0f));
 	}
