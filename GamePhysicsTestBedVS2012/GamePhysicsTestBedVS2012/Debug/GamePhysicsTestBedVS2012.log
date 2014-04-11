@@ -1,22 +1,22 @@
-﻿Build started 4/11/2014 10:01:34 AM.
+﻿Build started 4/11/2014 1:52:13 PM.
      1>Project "C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\src /IC:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Include /IC:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\FreeGLUT\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt GamePhysicsTestBed.cpp PhysicsDemo.cpp main.cpp
-         GamePhysicsTestBed.cpp
-     1>c:\users\bicely\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\gamephysicstestbed.cpp(71): warning C4305: 'argument' : truncation from 'double' to 'GLclampf'
-     1>c:\users\bicely\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\gamephysicstestbed.cpp(154): warning C4244: 'initializing' : conversion from 'unsigned long' to 'float', possible loss of data
-     1>c:\users\bicely\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\gamephysicstestbed.cpp(185): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\bicely\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\gamephysicstestbed.cpp(345): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\bicely\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\gamephysicstestbed.cpp(348): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\bicely\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\gamephysicstestbed.cpp(350): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-         Generating Code...
-         Compiling...
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\src /IC:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Include /IC:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\FreeGLUT\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt GameObject.cpp GamePhysicsTestBed.cpp main.cpp PhysicsDemo.cpp vector.cpp
+         vector.cpp
+         PhysicsDemo.cpp
          main.cpp
      1>c:\users\bicely\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\main.cpp(11): warning C4101: 's' : unreferenced local variable
-         PhysicsDemo.cpp
+         GamePhysicsTestBed.cpp
+     1>c:\users\bicely\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\gamephysicstestbed.cpp(72): warning C4305: 'argument' : truncation from 'double' to 'GLclampf'
+     1>c:\users\bicely\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\gamephysicstestbed.cpp(131): warning C4244: 'initializing' : conversion from 'unsigned long' to 'float', possible loss of data
+     1>c:\users\bicely\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\gamephysicstestbed.cpp(168): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\bicely\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\gamephysicstestbed.cpp(325): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\bicely\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\gamephysicstestbed.cpp(328): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\bicely\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\gamephysicstestbed.cpp(330): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+         GameObject.cpp
          Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Debug /LIBPATH:C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\lib /LIBPATH:C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Lib\Win32 opengl32.lib freeglut.lib BulletDynamics_vs2010_debug.lib BulletCollision_vs2010_debug.lib LinearMath_vs2010_debug.lib libovr.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.pdb" /SUBSYSTEM:CONSOLE,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.lib" /MACHINE:X86 Debug\GameObject.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Debug /LIBPATH:C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\lib /LIBPATH:C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Lib\Win32 opengl32.lib freeglut.lib BulletDynamics_vs2010_debug.lib BulletCollision_vs2010_debug.lib LinearMath_vs2010_debug.lib libovr.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\bicely\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.lib" /MACHINE:X86 Debug\GameObject.obj
          Debug\GamePhysicsTestBed.obj
          Debug\main.obj
          Debug\PhysicsDemo.obj
@@ -26,4 +26,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.69
+Time Elapsed 00:00:08.23
