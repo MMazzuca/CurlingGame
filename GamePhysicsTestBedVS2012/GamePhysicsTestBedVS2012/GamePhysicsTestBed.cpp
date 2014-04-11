@@ -533,15 +533,15 @@ void GamePhysicsTestBed::ZoomCamera(float distance) {
 
 		switch(curGameState)
 		{
-		case GameState::START:
+		case GameState::START:  //at the start of the game
 			break;
-		case GameState::END:
+		case GameState::END:  //at the end of the game
 			break;
-		case GameState::PLANING:
+		case GameState::PLANING: //overlooking the house when planing where to shoot
 			break;
-		case GameState::SHOOTING:
+		case GameState::SHOOTING: //first person aiming and shooting
 			break;
-		case GameState::SWEEPING:
+		case GameState::SWEEPING: //overhead view of rcok moving down sheet
 			break;
 		}
 
