@@ -1,0 +1,19 @@
+STAGE 1
+  Aim, shoot rock
+  Switch camera (active stone overhead, house overhead, first person thrower)
+  Game management
+
+  
+STAGE 2
+  Rock curling
+  Scoring
+  Sounds
+  
+  
+STAGE 3
+  Models
+  Sweeping
+  
+
+
+

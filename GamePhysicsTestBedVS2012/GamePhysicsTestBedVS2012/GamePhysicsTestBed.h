@@ -17,11 +17,11 @@
 typedef std::vector<GameObject*> GameObjects;
 // added in today's lecture
 // step one
-/*ADD*/	// struct to store our raycasting results
-/*ADD*/	struct RayResult {
-/*ADD*/		btRigidBody* pBody;
-/*ADD*/		btVector3 hitPoint;
-/*ADD*/	};
+	// struct to store our raycasting results
+	struct RayResult {
+		btRigidBody* pBody;
+		btVector3 hitPoint;
+	};
 
 using namespace OVR;
 
@@ -75,21 +75,21 @@ public:
 			const btVector3 &initialPosition = btVector3(0.0f,0.0f,0.0f), 
 			const btQuaternion &initialRotation = btQuaternion(0,0,1,1));
 	// added in today's lecture step 2
-	/*ADD*/		void ShootBox(const btVector3 &direction);
-	/*ADD*/		void DestroyGameObject(btRigidBody* pBody);
+			void ShootBox(const btVector3 &direction);
+			void DestroyGameObject(btRigidBody* pBody);
 
-	/*ADD*/		// picking functions
-	/*ADD*/		btVector3 GetPickingRay(int x, int y);
-	/*ADD*/		bool Raycast(const btVector3 &startPosition, const btVector3 &direction, RayResult &output);
+			// picking functions
+			btVector3 GetPickingRay(int x, int y);
+			bool Raycast(const btVector3 &startPosition, const btVector3 &direction, RayResult &output);
 	// ADDED TO TODAY'S LECTURE STEP 7 CONSTRAINT FUNCTIONS
-	/*ADD*/		void CreatePickingConstraint(int x, int y);
-	/*ADD*/		void RemovePickingConstraint();
+			void CreatePickingConstraint(int x, int y);
+			void RemovePickingConstraint();
 
 protected:
 	// ADDED TO TODAY'S LECTURE STEP 8 CONSTRAINT VARIABLES
-	/*ADD*/		btRigidBody* m_pPickedBody;				// the body we picked up
-	/*ADD*/		btTypedConstraint*  m_pPickConstraint;	// the constraint the body is attached to
-	/*ADD*/		btScalar m_oldPickingDist;				// the distance from the camera to the hit point (so we can move the object up, down, left and right from our view)
+			btRigidBody* m_pPickedBody;				// the body we picked up
+			btTypedConstraint*  m_pPickConstraint;	// the constraint the body is attached to
+			btScalar m_oldPickingDist;				// the distance from the camera to the hit point (so we can move the object up, down, left and right from our view)
 
 
 	// camera control
@@ -101,6 +101,11 @@ protected:
 	float m_cameraDistance; // distance from the camera to its target
 	float m_cameraPitch; // pitch of the camera 
 	float m_cameraYaw; // yaw of the camera
+	bool m_shootAim;
+	int m_mouseAimStartX;
+	int m_shootAimMaxYaw;
+	int m_shootAimMinYaw;
+	float m_shootPower;
 
 	int m_screenWidth;
 	int m_screenHeight;
