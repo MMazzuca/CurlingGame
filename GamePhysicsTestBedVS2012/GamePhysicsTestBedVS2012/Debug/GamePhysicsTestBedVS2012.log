@@ -1,17 +1,17 @@
-﻿Build started 10/04/2014 9:43:29 AM.
-     1>Project "C:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012.vcxproj" on node 2 (Build target(s)).
+﻿Build started 4/10/2014 9:39:02 PM.
+     1>Project "C:\Users\Karen\Desktop\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\src /IC:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Include /IC:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\FreeGLUT\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt PhysicsDemo.cpp
+         E:\Visual Studio 2012\VC\bin\CL.exe /c /IC:\Users\Karen\Desktop\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\src /IC:\Users\Karen\Desktop\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Include /IC:\Users\Karen\Desktop\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\FreeGLUT\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt PhysicsDemo.cpp
          PhysicsDemo.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Debug /LIBPATH:C:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\lib /LIBPATH:C:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Lib\Win32 opengl32.lib freeglut.lib BulletDynamics_vs2010_debug.lib BulletCollision_vs2010_debug.lib LinearMath_vs2010_debug.lib libovr.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.lib" /MACHINE:X86 Debug\GameObject.obj
+         E:\Visual Studio 2012\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Karen\Desktop\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\Karen\Desktop\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Debug /LIBPATH:C:\Users\Karen\Desktop\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\lib /LIBPATH:C:\Users\Karen\Desktop\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Lib\Win32 opengl32.lib freeglut.lib BulletDynamics_vs2010_debug.lib BulletCollision_vs2010_debug.lib LinearMath_vs2010_debug.lib libovr.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Karen\Desktop\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Karen\Desktop\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.lib" /MACHINE:X86 Debug\GameObject.obj
          Debug\GamePhysicsTestBed.obj
          Debug\main.obj
          Debug\PhysicsDemo.obj
          Debug\vector.obj
-         GamePhysicsTestBedVS2012.vcxproj -> C:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.exe
-     1>Done Building Project "C:\Users\bagenoxu\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012.vcxproj" (Build target(s)).
+         GamePhysicsTestBedVS2012.vcxproj -> C:\Users\Karen\Desktop\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.exe
+     1>Done Building Project "C:\Users\Karen\Desktop\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.62
+Time Elapsed 00:00:02.25
