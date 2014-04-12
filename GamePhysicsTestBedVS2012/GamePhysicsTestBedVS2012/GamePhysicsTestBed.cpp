@@ -22,9 +22,14 @@ m_pWorld(0),
 m_pMotionState(0),
 isThrown(false),
 state(START),
-//ADDED TO TODAY'S LECTURE STEP 14
-/*ADD*/	m_pPickedBody(0),
-/*ADD*/	m_pPickConstraint(0)
+m_pPickedBody(0),
+m_pPickConstraint(0),
+m_shootAim(false),
+m_mouseAimStartX(0),
+m_shootAimMaxYaw(10),
+m_shootAimMinYaw(-10),
+m_shootPower(0),
+curGameState(GameState::START)
 {
 }
 
@@ -74,35 +79,11 @@ void GamePhysicsTestBed::Initialize() {
 void GamePhysicsTestBed::Keyboard(unsigned char key, int x, int y) {
 	// This function is called by FreeGLUT whenever
 	// generic keys are pressed down.
-	switch(key) {
-		 //'z' zooms in
+	switch (key) {
+		//'z' zooms in
 	case 'z': ZoomCamera(+CAMERA_STEP_SIZE); break;
 		///'x' zoom out
 	case 'x': ZoomCamera(-CAMERA_STEP_SIZE); break;
-	// added in today's lecture step 3
-	case 'b':
-		/*ADD*/			{
-/*ADD*/				// create a temp object to store the raycast result
-/*ADD*/				RayResult result;
-/*ADD*/				// perform the raycast
-/*ADD*/				if (!Raycast(m_cameraPosition, GetPickingRay(x, y), result))
-/*ADD*/					return; // return if the test failed
-/*ADD*/				// destroy the corresponding game object
-/*ADD*/				DestroyGameObject(result.pBody);
-/*ADD*/				break;
-/*ADD*/			}
-		break;
-	case 'd':
- 		{
- 			// create a temp object to store the raycast result
- 			RayResult result;
- 			// perform the raycast
- 			if (!Raycast(m_cameraPosition, GetPickingRay(x, y), result))
- 				return; // return if the test failed
- 			// destroy the corresponding game object
- 			DestroyGameObject(result.pBody);
- 			break;
- 		}
 	}
 }
 
@@ -170,34 +151,39 @@ void GamePhysicsTestBed::Idle() {
 
 void GamePhysicsTestBed::Mouse(int button, int state, int x, int y) 
 {
-	
-	/*ADD*/		switch(button) {
-// added to today's lecture step 9
-		
-/*ADD*/		case 0:  // left mouse button
-/*ADD*/			{
-/*ADD*/				if (state == 0) { // button down
-/*ADD*/					// create the picking constraint when we click the LMB
-/*ADD*/					CreatePickingConstraint(x, y);
-/*ADD*/				} else { // button up
-/*ADD*/					// remove the picking constraint when we release the LMB
-/*ADD*/					RemovePickingConstraint();
-/*ADD*/				}
-/*ADD*/				break;
-/*ADD*/			}
-// added in today's lecture step 4
-/*ADD*/		case 2: // right mouse button
-/*ADD*/			{
-/*ADD*/				if (state == 0) { // pressed down
-/*ADD*/					// shoot a box
-/*ADD*/					ShootBox(GetPickingRay(x, y));
-                        isThrown = true;
-						this->state = THROWN;
-/*ADD*/				}
-/*ADD*/		
-/*ADD*/			break;
-/*ADD*/			}
-/*ADD*/		}
+
+	switch (button) {
+		// added to today's lecture step 9
+
+	case 0:  // left mouse button
+		if (state == 0)
+		{
+			m_shootPower = 0;
+			m_shootPowerStart = std::clock();
+		}
+		else
+		{
+			m_shootPower = (std::clock() - m_shootPowerStart) / static_cast<float>(CLOCKS_PER_SEC);
+			ShootBox(GetPickingRay(m_screenWidth * 0.5f, m_screenWidth * 0.5f));
+
+			isThrown = true;
+			this->state = THROWN;
+		}
+		break;
+		// added in today's lecture step 4
+	case 2: // right mouse button
+		if (state == 0)
+		{
+			m_shootAim = true;
+			m_mouseAimStartX = x;
+		}
+		else
+		{
+			m_shootAim = false;
+		}
+
+		break;
+	}
 }
 // ADDED IN TODAY'S LECTURE STEP 5
 
@@ -316,23 +302,16 @@ void GamePhysicsTestBed::PassiveMotion(int x, int y)
 // ADDED TO TODAY'S LECTURE STEP 10
 void GamePhysicsTestBed::Motion(int x, int y) 
 {
-	/*ADD*/		// did we pick a body with the LMB?
-/*ADD*/		if (m_pPickedBody) {
-/*ADD*/			btGeneric6DofConstraint* pickCon = static_cast<btGeneric6DofConstraint*>(m_pPickConstraint);
-/*ADD*/			if (!pickCon)
-/*ADD*/				return;
-/*ADD*/	
-/*ADD*/			// use another picking ray to get the target direction
-/*ADD*/			btVector3 dir = GetPickingRay(x,y) - m_cameraPosition;
-/*ADD*/			dir.normalize();
-/*ADD*/	
-/*ADD*/			// use the same distance as when we originally picked the object
-/*ADD*/			dir *= m_oldPickingDist;
-/*ADD*/			btVector3 newPivot = m_cameraPosition + dir;
-/*ADD*/	
-/*ADD*/			// set the position of the constraint
-/*ADD*/			pickCon->getFrameOffsetA().setOrigin(newPivot);
-/*ADD*/		}
+	if (m_shootAim)
+	{
+		m_cameraYaw += (m_mouseAimStartX - x) * 0.1;
+		m_mouseAimStartX = x;
+		if (m_cameraYaw > m_shootAimMaxYaw)
+			m_cameraYaw = m_shootAimMaxYaw;
+		else if (m_cameraYaw < m_shootAimMinYaw)
+			m_cameraYaw = m_shootAimMinYaw;
+
+	}
 }
 
 
@@ -544,6 +523,27 @@ void GamePhysicsTestBed::ZoomCamera(float distance) {
 			// determined back in ::Idle() by our clock object.
 			m_pWorld->stepSimulation(dt);
 		}
+
+		switch (curGameState)
+		{
+		case GameState::START:  //at the start of the game
+			break;
+
+		case GameState::END:  //at the end of the game
+			break;
+
+		case GameState::PLANING: //overlooking the house when planing where to shoot
+			break;
+
+		case GameState::SHOOTING: //first person aiming and shooting
+			break;
+
+		case GameState::SWEEPING: //overhead view of rcok moving down sheet
+			break;
+
+		case GameState::SCORING: //overlooking the hosue showing rocks that are scoring
+			break;
+		}
 	}
 	void GamePhysicsTestBed::DrawShape(btScalar* transform, const btCollisionShape* pShape, const btVector3 &color) {
 	// set the color
@@ -670,3 +670,64 @@ void GamePhysicsTestBed::CreatePickingConstraint(int x, int y)
 /*ADD*/		m_pPickedBody = 0;
 /*ADD*/	}
 //ADDED TO TODAY'S LECTURE STEP 12
+
+
+
+void GamePhysicsTestBed::ChangeState(GameState newState)
+{
+	if (ValidStateChange(newState))
+	{
+		switch (newState)
+		{
+		case GameState::START:
+			break;
+
+		case GameState::END:
+			break;
+
+		case GameState::PLANING:
+			break;
+
+		case GameState::SHOOTING:
+			break;
+
+		case GameState::SWEEPING:
+			break;
+
+		case GameState::SCORING:
+			break;
+		}
+	}
+}
+
+bool GamePhysicsTestBed::ValidStateChange(GameState newState)
+{
+	bool isValid = false;
+
+	switch (curGameState)
+	{
+	case GameState::START:
+		isValid = newState == GameState::PLANING;
+		break;
+
+	case GameState::END:
+		isValid = newState == GameState::START;
+		break;
+
+	case GameState::PLANING:
+		isValid = newState == GameState::SHOOTING || newState == GameState::END;
+		break;
+
+	case GameState::SHOOTING:
+		isValid = newState == GameState::SWEEPING || newState == GameState::END;
+		break;
+
+	case GameState::SWEEPING:
+		isValid = newState == GameState::PLANING || newState == GameState::SCORING || newState == GameState::END;
+		break;
+
+	case GameState::SCORING:
+		isValid = newState == GameState::PLANING || newState == GameState::END;
+		break;
+	}
+}
