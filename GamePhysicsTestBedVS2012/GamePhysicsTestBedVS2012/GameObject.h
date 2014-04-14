@@ -5,7 +5,7 @@
 #include "OpenGLMotionState.h"
 #include "Object.h"
 
-class GameObject:public Object
+class GameObject : public Object
 {
 public:
 	GameObject(btCollisionShape* pShape, float mass, const btVector3 &color, const btVector3 &initialPosition = btVector3(0,0,0), const btQuaternion &initialRotation = btQuaternion(0,0,1,1));
@@ -24,7 +24,7 @@ public:
 	
 	btVector3 GetColor() { return m_color; }
 
-	virtual ObjectType getType()
+	virtual ObjectType getType() const
 	{
 		return ObjectType::BASE;
 	}

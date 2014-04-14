@@ -21,7 +21,7 @@ int House::GetScore(GamePhysicsTestBed const* testBed) const
 	score = scoringRocks.size();
 
 	//Check if the scoring team is blue, if so negate score
-	if (!scoringRocks.empty() /*&& scoringRocks.front()->getTeam() == TEAM_BLUE*/)
+	if (!scoringRocks.empty() && static_cast<Rock*>(scoringRocks.front())->getTeam() == TEAM_BLUE)
 	{
 		score *= -1;
 	}
@@ -47,6 +47,7 @@ bool House::FindClosest(GamePhysicsTestBed const* testBed, GameObjects & scoring
 	for (GameObjects::const_iterator it = objects->cbegin(); it != objects->cend(); ++it)
 	{
 		//if this is a rock (Need rock class)
+		if(Object::ObjectType::ROCK == (*it)->getType())
 		{
 			motionState = (*it)->GetMotionState();
 			motionState->getWorldTransform(transform);
@@ -71,7 +72,7 @@ bool House::FindClosest(GamePhysicsTestBed const* testBed, GameObjects & scoring
 	}
 
 	//If there was a next closest rock and it belongs to the same team as the closest.
-	if (NULL != ptr_closest /*&& (scoringRocks.empty() || scoringRocks.front()->getTeam() == ptr_closest->getTeam())*/)
+	if (NULL != ptr_closest && (scoringRocks.empty() || static_cast<Rock*>(scoringRocks.front())->getTeam() == static_cast<Rock*>(ptr_closest)->getTeam()))
 	{
 		scoringRocks.push_back(ptr_closest);
 		rtnFound = true;

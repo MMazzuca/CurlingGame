@@ -1,13 +1,18 @@
-#include "GameObject.h"
-#include "Game.h"
+#ifndef ROCK_H
+#define ROCK_H
 
-class Rock:GameObject
+#include "GameObject.h"
+
+class Rock: public GameObject
 {
 public:
-	Rock(btVector3 &initialPosition, Game::Team);
+	Rock(btVector3 &initialPosition, Team team);
 	~Rock();
-	Game::Team team;
-	Game::Team getTeam() const;
-	static Rock* Throw(btVector3 &initialPosition, Game::Team team, const btVector3 &direction, float Rotation, float Velocity);
-	ObjectType getType();
+	Team team;
+	Team getTeam() const;
+	static Rock* Throw(btVector3 &initialPosition, Team team, const btVector3 &direction, float Rotation, float Velocity);
+	ObjectType getType() const;
 };
+
+
+#endif

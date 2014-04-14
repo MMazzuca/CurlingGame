@@ -4,7 +4,7 @@
 Game::Game() :
 PhysicsDemo(),
 m_curGameState(GameState::START),
-m_activeTeam(Team::TEAM_BLUE),
+m_activeTeam(Object::Team::TEAM_BLUE),
 m_end(10.0f, btVector3(0, 0, 50)),
 mptr_activeRock(NULL),
 m_scoreBlue(0),
@@ -14,6 +14,7 @@ m_rocksRed(0),
 m_scoringTimer(0)
 {
 	ChangeState(GameState::START);
+	//ChangeState(GameState::SHOOTING);
 }
 
 
@@ -29,7 +30,7 @@ void Game::UpdateScene(float dt)
 		m_startTimer += dt;
 		if(m_startTimer > START_TIMER)
 		{
-			ChangeState(GameState::SHOOTING);
+			ChangeState(GameState::PLANING);
 		}
 		break;
 
@@ -60,6 +61,7 @@ void Game::UpdateScene(float dt)
 			if (mptr_activeRock->GetRigidBody()->getLinearVelocity().length() < ROCK_MOVE_THREASHOLD)
 			{
 				ChangeState(GameState::PLANING);
+				mptr_activeRock = NULL;
 			}
 		}
 			
@@ -85,14 +87,17 @@ void Game::ChangeState(GameState newState)
 		switch (newState)
 		{
 		case GameState::START:
+			m_curGameState = GameState::START;
 			m_rocksBlue = m_rocksRed = 3;
 			m_startTimer = 0;
 			break;
 
 		case GameState::END:
+			m_curGameState = GameState::END;
 			break;
 
 		case GameState::PLANING:
+			m_curGameState = GameState::PLANING;
 			m_planingTimer = 0;
 			SwitchTeams();
 			if (GetTeamRocks(m_activeTeam) < 1)
@@ -100,25 +105,32 @@ void Game::ChangeState(GameState newState)
 				ChangeState(GameState::SCORING);
 			}
 			//set camera over house
+			state = STATE::THROWN;
 			break;
 
 		case GameState::SHOOTING:
+			m_curGameState = GameState::SHOOTING;
 			//set camera first person
+			state = STATE::START;
 			break;
 
 		case GameState::SWEEPING:
+			m_curGameState = GameState::SWEEPING;
 			//set camera over sheet
+			state = STATE::THROWN;
 			break;
 
 		case GameState::SCORING:
+			m_curGameState = GameState::SCORING;
 			m_scoringTimer = 0;
 
 			int score = m_end.GetScore(this);
 			if (score < 0)
-				UpdateTeamScore(Team::TEAM_BLUE, -score);
+				UpdateTeamScore(Object::Team::TEAM_BLUE, -score);
 			else
-				UpdateTeamScore(Team::TEAM_RED, score);
+				UpdateTeamScore(Object::Team::TEAM_RED, score);
 			//set camera over house
+			state = STATE::THROWN;
 
 			break;
 		}
@@ -161,9 +173,9 @@ bool Game::ValidStateChange(GameState newState)
 }
 
 
-/*Rock * Game::ThrowRock()
+Rock * Game::ThrowRock(btVector3 &initialPosition, const btVector3 &direction, float rotation, float velocity)
 {
-	Rock * rock = Rock::ThrowRock();
+	Rock * rock = Rock::Throw(initialPosition, m_activeTeam, direction, rotation, velocity);
 	
 	// push it to the back of the list
 	m_objects.push_back(rock);
@@ -175,61 +187,61 @@ bool Game::ValidStateChange(GameState newState)
 		m_pWorld->addRigidBody(rock->GetRigidBody());
 	}
 	return rock;
-}*/
+}
 
 void Game::SwitchTeams()
 {
 	switch (m_activeTeam)
 	{
-	case Team::TEAM_BLUE:
-		m_activeTeam = Team::TEAM_RED;
+	case Object::Team::TEAM_BLUE:
+		m_activeTeam = Object::Team::TEAM_RED;
 		break;
 
-	case Team::TEAM_RED:
-		m_activeTeam = Team::TEAM_BLUE;
+	case Object::Team::TEAM_RED:
+		m_activeTeam = Object::Team::TEAM_BLUE;
 		break;
 	}
 }
 
-int Game::GetTeamRocks(Team team)
+int Game::GetTeamRocks(Object::Team team)
 {
 	switch (team)
 	{
-	case Team::TEAM_BLUE:
+	case Object::Team::TEAM_BLUE:
 		return m_rocksBlue;
 		break;
 
-	case Team::TEAM_RED:
+	case Object::Team::TEAM_RED:
 		return m_rocksRed;
 		break;
 	}
 
-	return Team::TEAM_BLUE;
+	return m_rocksBlue;
 }
 
-void Game::UpdateTeamRocks(Team team, int change)
+void Game::UpdateTeamRocks(Object::Team team, int change)
 {
 	switch (team)
 	{
-	case Team::TEAM_BLUE:
+	case Object::Team::TEAM_BLUE:
 		m_rocksBlue += change;
 		break;
 
-	case Team::TEAM_RED:
+	case Object::Team::TEAM_RED:
 		m_rocksRed += change;
 		break;
 	}
 }
 
-void Game::UpdateTeamScore(Team team, int change)
+void Game::UpdateTeamScore(Object::Team team, int change)
 {
 	switch (team)
 	{
-	case Team::TEAM_BLUE:
+	case Object::Team::TEAM_BLUE:
 		m_scoreBlue += change;
 		break;
 
-	case Team::TEAM_RED:
+	case Object::Team::TEAM_RED:
 		m_scoreRed += change;
 		break;
 	}
@@ -276,13 +288,9 @@ void Game::MouseShooting(int button, int state, int x, int y)
 		}
 		else
 		{
-			m_shootPower = (std::clock() - m_shootPowerStart) / static_cast<float>(CLOCKS_PER_SEC);
-			ShootBox(GetPickingRay(m_screenWidth * 0.5f, m_screenWidth * 0.5f));
-			/*mptr_activeRock = ThrowRock(pos, team, dir, rotation, velocity);*/
+			m_shootPower = static_cast<float>(SHOOTING_VELOCITY_FULL) / static_cast<float>(SHOOTING_TIMER_FULL)  * (std::clock() - m_shootPowerStart) / static_cast<float>(CLOCKS_PER_SEC);
+			mptr_activeRock = ThrowRock(m_cameraPosition, GetPickingRay(m_screenWidth * 0.5f, m_screenWidth * 0.5f), -5, m_shootPower);
 			
-
-			isThrown = true;
-			this->state = THROWN;
 		}
 		break;
 
@@ -340,6 +348,5 @@ void Game::MotionShooting(int x, int y)
 			m_cameraYaw = m_shootAimMaxYaw;
 		else if (m_cameraYaw < m_shootAimMinYaw)
 			m_cameraYaw = m_shootAimMinYaw;
-
 	}
 }

@@ -3,6 +3,10 @@
 
 #include "GameObject.h"
 #include "GamePhysicsTestBed.h"
+#include "Rock.h"
+
+class Rock;
+class Game;
 
 class House : public GameObject
 {

@@ -20,7 +20,6 @@ m_pDispatcher(0),
 m_pSolver(0),
 m_pWorld(0),
 m_pMotionState(0),
-isThrown(false),
 state(STATE::START),
 m_pPickedBody(0),
 m_pPickConstraint(0),
@@ -342,12 +341,13 @@ void GamePhysicsTestBed::UpdateCamera() {
 	switch(state)
 	{
 	case START:
-    if(isThrown == false)
+    //if(isThrown == false)
 	 gluLookAt(m_cameraPosition[0], m_cameraPosition[1], m_cameraPosition[2], m_cameraTarget[0], m_cameraTarget[1], m_cameraTarget[2], m_upVector.getX(), m_upVector.getY(), m_upVector.getZ());
+	 m_cameraPitch = 10.0f;
 	break;
 
 	case THROWN:
-		if(isThrown == true)
+		//if(isThrown == true)
 			gluLookAt(m_cameraPosition[0], m_cameraPosition[1]+90, m_cameraPosition[2], m_cameraTarget[0], m_cameraTarget[1], m_cameraTarget[2], m_upVector.getX(), m_upVector.getY(), m_upVector.getZ());
 		    m_cameraPitch = 90.0f;
 			break;

@@ -53,7 +53,6 @@ public:
 	void UpdateCamera();
 	void RotateCamera(float &angle, float value);
 	void ZoomCamera(float distance);
-	bool isThrown;
 	// drawing functions
 	// rendering. Can be overrideen by derived classes
 	virtual void RenderScene();

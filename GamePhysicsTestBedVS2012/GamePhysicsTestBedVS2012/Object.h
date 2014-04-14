@@ -7,11 +7,21 @@
 class Object
 {
 public: 
+	enum Team
+	{
+		TEAM_RED,
+		TEAM_BLUE
+	};
+	enum ObjectType
+	{
+		BASE,
+		ROCK
+	};
+
 	Object();
 	~Object();
-	enum ObjectType{BASE, ROCK};
 	OpenGLMotionState*  m_pMotionState;
-	virtual ObjectType getType() = 0;
+	virtual ObjectType getType() const = 0;
 };
 
 #endif

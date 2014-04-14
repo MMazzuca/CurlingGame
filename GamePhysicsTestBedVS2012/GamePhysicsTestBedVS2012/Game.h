@@ -4,22 +4,20 @@
 #include <ctime>
 #include <cassert>
 
-#include "House.h"
 #include "PhysicsDemo.h"
+#include "House.h"
+#include "Rock.h"
 
 #define ROCK_MOVE_THREASHOLD 0.001
 #define START_TIMER 5
 #define SCORING_TIMER 5
 #define PLANING_TIMER 10
+#define SHOOTING_TIMER_FULL 5
+#define SHOOTING_VELOCITY_FULL 100
 
 class Game : public PhysicsDemo
 {
 public:
-	enum Team
-	{
-		TEAM_RED,
-		TEAM_BLUE
-	};
 	enum GameState
 	{
 		START,
@@ -38,13 +36,13 @@ public:
 	void ChangeState(GameState newState);
 	bool ValidStateChange(GameState newState);
 
-	/*Rock * ThrowRock();*/
+	Rock * ThrowRock(btVector3 &initialPosition, const btVector3 &direction, float Rotation, float Velocity);
 
 	void SwitchTeams();
-	int GetTeamRocks(Team team);
+	int GetTeamRocks(Object::Team team);
 	
-	void UpdateTeamRocks(Team team, int change);
-	void UpdateTeamScore(Team team, int change);
+	void UpdateTeamRocks(Object::Team team, int change);
+	void UpdateTeamScore(Object::Team team, int change);
 
 	void Mouse(int button, int state, int x, int y);
 	void MouseShooting(int button, int state, int x, int y);
@@ -56,7 +54,7 @@ private:
 	GameState m_curGameState;
 	House m_end;
 	GameObject * mptr_activeRock;
-	Team m_activeTeam;
+	Object::Team m_activeTeam;
 	int m_scoreBlue, m_scoreRed;
 	int m_rocksBlue, m_rocksRed;
 
