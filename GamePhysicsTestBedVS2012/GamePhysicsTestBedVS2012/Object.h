@@ -19,7 +19,7 @@ public:
 	};
 
 	Object();
-	~Object();
+	virtual ~Object();
 	OpenGLMotionState*  m_pMotionState;
 	virtual ObjectType getType() const = 0;
 };

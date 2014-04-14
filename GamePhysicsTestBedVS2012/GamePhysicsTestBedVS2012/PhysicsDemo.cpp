@@ -24,15 +24,23 @@ void PhysicsDemo::ShutdownPhysics() {
 	delete m_pCollisionConfiguration;
 }
 
-	void PhysicsDemo::CreateObjects() {
+	void PhysicsDemo::CreateObjects()
+	{
 
-	// create a ground plane
-		CreateGameObject(new btBoxShape(btVector3(1,25,100)), 0, btVector3(0.2f, 0.6f, 0.6f), btVector3(0.0f, 0.0f, 0.0f));
+		//These need to be created here, otherwise rocks fall through the gorund.
+		CreateGameObject(new btBoxShape(btVector3(1,6,6)), 0, btVector3(1.0f, 0.6f, 0.6f), btVector3(0.0f, 0.01f, 85.0f));
+		CreateGameObject(new btBoxShape(btVector3(1,12,1)), 0, btVector3(0.0f, 0.0f, 0.0f), btVector3(0.0f, 0.01f, 60.0f));
 
-		//Walls of the playing field
-		CreateGameObject(new btBoxShape(btVector3(4.0,1,100)), 0, btVector3(1.0f, 1.0f, 1.0f), btVector3(5.0f, 1.0f, 0.0f));
+		CreateGameObject(new btBoxShape(btVector3(1,12,100)), 0, btVector3(0.2f, 0.6f, 0.6f), btVector3(0.0f, 0.0f, 0.0f));
 
-		CreateGameObject(new btBoxShape(btVector3(4.0,1,100)), 0, btVector3(1.0f, 1.0f, 1.0f), btVector3(-5.0f, 1.0f, 0.0f));
 
-		CreateGameObject(new btBoxShape(btVector3(4.0, 4.0, 1)), 0, btVector3(1.0f, 1.0f, 1.0f), btVector3(0.0f, 1.0f, 100.0f));
+	//// create a ground plane
+	//	CreateGameObject(new btBoxShape(btVector3(1,25,100)), 0, btVector3(0.2f, 0.6f, 0.6f), btVector3(0.0f, 0.0f, 0.0f));
+
+	//	//Walls of the playing field
+	//	CreateGameObject(new btBoxShape(btVector3(4.0,1,100)), 0, btVector3(1.0f, 1.0f, 1.0f), btVector3(5.0f, 1.0f, 0.0f));
+
+	//	CreateGameObject(new btBoxShape(btVector3(4.0,1,100)), 0, btVector3(1.0f, 1.0f, 1.0f), btVector3(-5.0f, 1.0f, 0.0f));
+
+	//	CreateGameObject(new btBoxShape(btVector3(4.0, 4.0, 1)), 0, btVector3(1.0f, 1.0f, 1.0f), btVector3(0.0f, 1.0f, 100.0f));
 	}

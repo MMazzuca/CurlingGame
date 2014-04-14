@@ -1,13 +1,17 @@
   
-STAGE 3
+From most to least important
   Rock curling
-  Impliment sounds
-  HUD
-  Models
-  Sweeping
-  Aiming Broom
-  House Camera
+  Aiming Broomng
+  Check scoring
   
+  Sweeping
+  House Camera
+
+  Impliment sounds
+  Models
+  
+
+  HUD
   Start/End Screen
   
 

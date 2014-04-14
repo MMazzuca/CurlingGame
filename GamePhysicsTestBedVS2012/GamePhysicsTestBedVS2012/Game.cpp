@@ -5,14 +5,35 @@ Game::Game() :
 PhysicsDemo(),
 m_curGameState(GameState::START),
 m_activeTeam(Object::Team::TEAM_BLUE),
-m_end(10.0f, btVector3(0, 0, 50)),
+m_end(6.0f, btVector3(0, 0, 85.0f)),
 mptr_activeRock(NULL),
 m_scoreBlue(0),
 m_scoreRed(0),
 m_rocksBlue(0),
 m_rocksRed(0),
-m_scoringTimer(0)
+m_scoringTimer(0),
+m_limitsX(12),
+m_limitsY(10),
+m_limitsZ(100),
+m_limitZHog(60),
+m_round(0)
+
 {
+	//draw hosue and hog line
+	//CreateGameObject(new btBoxShape(btVector3(1,6,6)), 0, btVector3(1.0f, 0.6f, 0.6f), btVector3(0.0f, 0.0f, 85.0f));
+	//CreateGameObject(new btBoxShape(btVector3(1,12,1)), 0, btVector3(0.0f, 0.0f, 0.0f), btVector3(0.0f, 0.0f, m_limitZHog));
+
+	//Test boundary walls
+	//CreateGameObject(new btBoxShape(btVector3(10,1,100)), 0, btVector3(0.2f, 0.6f, 1.0f), btVector3(12.0f, 0.0f, 0.0f));
+	//CreateGameObject(new btBoxShape(btVector3(10,1,100)), 0, btVector3(0.2f, 0.6f, 1.0f), btVector3(-12.0f, 0.0f, 0.0f));
+	//CreateGameObject(new btBoxShape(btVector3(10,12,1)), 0, btVector3(1.0f, 0.0f, 0.0f), btVector3(0.0f, 0.0f, -100.0f));
+	//CreateGameObject(new btBoxShape(btVector3(10,12,1)), 0, btVector3(1.0f, 0.0f, 0.0f), btVector3(0.0f, 0.0f, 100.0f));
+	
+	
+	// create a ground plane
+	CreateGameObject(new btBoxShape(btVector3(1,12,100)), 0, btVector3(0.2f, 0.6f, 0.6f), btVector3(0.0f, 0.0f, 0.0f));
+
+
 	ChangeState(GameState::START);
 	//ChangeState(GameState::SHOOTING);
 }
@@ -57,12 +78,33 @@ void Game::UpdateScene(float dt)
 
 		if (NULL != mptr_activeRock)
 		{
-			//check if rock is still moving
-			if (mptr_activeRock->GetRigidBody()->getLinearVelocity().length() < ROCK_MOVE_THREASHOLD)
+			//check if rock is out of bounds
+			btTransform transform;
+			btVector3 position;
+			mptr_activeRock->GetMotionState()->getWorldTransform(transform);
+			position = transform.getOrigin();
+
+			if(std::abs(position.x()) > std::abs(m_limitsX) || std::abs(position.z()) > std::abs(m_limitsZ) || std::abs(position.y()) > std::abs(m_limitsY))
 			{
+				RemoveGameObject(mptr_activeRock);
 				ChangeState(GameState::PLANING);
 				mptr_activeRock = NULL;
 			}
+
+			//check if rock is still moving
+			if (NULL != mptr_activeRock && mptr_activeRock->GetRigidBody()->getLinearVelocity().length() < ROCK_MOVE_THREASHOLD)
+			{
+				if(std::abs(position.z()) < std::abs(m_limitZHog))
+				{
+					RemoveGameObject(mptr_activeRock);
+				}
+				ChangeState(GameState::PLANING);
+				mptr_activeRock = NULL;
+			}
+		}
+		else
+		{
+			ChangeState(GameState::PLANING);
 		}
 			
 		break;
@@ -72,7 +114,7 @@ void Game::UpdateScene(float dt)
 		m_scoringTimer += dt;
 		if (m_scoringTimer > SCORING_TIMER)
 		{
-			ChangeState(GameState::PLANING);
+			ChangeState(GameState::START);
 		}
 		break;
 	}
@@ -90,8 +132,13 @@ void Game::ChangeState(GameState newState)
 		{
 		case GameState::START:
 			m_curGameState = GameState::START;
-			m_rocksBlue = m_rocksRed = 3;
+			m_rocksBlue = m_rocksRed = NUM_ROCKS;
 			m_startTimer = 0;
+			++m_round;
+			if(m_round > MAX_ROUNDS)
+			{
+				ChangeState(GameState::END);
+			}
 			break;
 
 		case GameState::END:
@@ -149,7 +196,7 @@ bool Game::ValidStateChange(GameState newState)
 	switch (m_curGameState)
 	{
 	case GameState::START:
-		isValid = newState == GameState::START|| newState == GameState::PLANING;
+		isValid = newState == GameState::START|| newState == GameState::PLANING || newState == GameState::END;
 		break;
 
 	case GameState::END:
@@ -157,7 +204,7 @@ bool Game::ValidStateChange(GameState newState)
 		break;
 
 	case GameState::PLANING:
-		isValid = newState == GameState::SHOOTING || newState == GameState::END;
+		isValid = newState == GameState::SHOOTING || newState == GameState::SCORING || newState == GameState::END;
 		break;
 
 	case GameState::SHOOTING:
@@ -169,7 +216,7 @@ bool Game::ValidStateChange(GameState newState)
 		break;
 
 	case GameState::SCORING:
-		isValid = newState == GameState::PLANING || newState == GameState::END;
+		isValid = newState == GameState::START || newState == GameState::PLANING || newState == GameState::END;
 		break;
 	}
 
@@ -180,7 +227,7 @@ bool Game::ValidStateChange(GameState newState)
 Rock * Game::ThrowRock(btVector3 &initialPosition, const btVector3 &direction, float rotation, float velocity)
 {
 	Rock * rock = Rock::Throw(initialPosition, m_activeTeam, direction, rotation, velocity);
-	
+
 	// push it to the back of the list
 	m_objects.push_back(rock);
 
@@ -190,6 +237,7 @@ Rock * Game::ThrowRock(btVector3 &initialPosition, const btVector3 &direction, f
 		// add the object's rigid body to the world
 		m_pWorld->addRigidBody(rock->GetRigidBody());
 	}
+	
 	return rock;
 }
 
@@ -294,7 +342,7 @@ void Game::MouseShooting(int button, int state, int x, int y)
 		{
 			m_shootPower = static_cast<float>(SHOOTING_VELOCITY_FULL) / static_cast<float>(SHOOTING_TIMER_FULL)  * (std::clock() - m_shootPowerStart) / static_cast<float>(CLOCKS_PER_SEC);
 			mptr_activeRock = ThrowRock(m_cameraPosition, GetPickingRay(m_screenWidth * 0.5f, m_screenWidth * 0.5f), -5, m_shootPower);
-			
+			UpdateTeamRocks(m_activeTeam, -1);
 		}
 		break;
 
@@ -362,7 +410,8 @@ void Game::LazyHud() const
 
 	std::cout << "Welome to Curling" << std::endl;
 	std::cout << "=================" << std::endl;
-	std::cout << "Current Phase ";
+	std::cout << "Round: " << m_round << std::endl;
+	std::cout << "Current Phase: ";
 	
 	switch (m_curGameState)
 	{
@@ -393,6 +442,11 @@ void Game::LazyHud() const
 	std::cout << std::endl;
 
 	std::cout << "Active Team: " << ( Object::Team::TEAM_BLUE == m_activeTeam ? "Blue" : "Red") << std::endl << std::endl;
+	std::cout << "Blue Rocks: " << m_rocksBlue << std::endl;
+	std::cout << "Red Rocks:  " << m_rocksRed << std::endl;
+
+	std::cout << std::endl;
+	std::cout << "Scores: " << std::endl;
 	std::cout << "Red:  " << m_scoreRed << std::endl;
 	std::cout << "Blue: " << m_scoreBlue << std::endl;
 

@@ -93,6 +93,8 @@ public:
 
 	GameObjects const* GetGameObjects() const;
 
+	void RemoveGameObject(GameObject * obj);
+
 protected:
 	// ADDED TO TODAY'S LECTURE STEP 8 CONSTRAINT VARIABLES
 	/*ADD*/		btRigidBody* m_pPickedBody;				// the body we picked up

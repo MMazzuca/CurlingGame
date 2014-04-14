@@ -1,6 +1,6 @@
 #include "House.h"
 
-House::House(float size, btVector3 const& initialPosition) : m_size(size), GameObject(new btBoxShape(btVector3(1, 25, 100)), 0, initialPosition, btVector3(0.0f, 0.0f, 0.0f))
+House::House(float size, btVector3 const& initialPosition) : m_size(size), GameObject(new btBoxShape(btVector3(1, 100, 100)), 0, initialPosition)
 {
 }
 

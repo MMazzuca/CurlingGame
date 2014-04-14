@@ -614,3 +614,18 @@ GameObjects const* GamePhysicsTestBed::GetGameObjects() const
 {
 	return &m_objects;
 }
+
+
+void GamePhysicsTestBed::RemoveGameObject(GameObject * obj)
+{
+	GameObjects::iterator it;
+
+	for(it = m_objects.begin(); it != m_objects.end() && *it != obj; ++it);
+
+	if(it != m_objects.end())
+	{
+		m_pWorld->removeRigidBody((*it)->GetRigidBody());
+		delete *it;
+		m_objects.erase(it);
+	}
+}

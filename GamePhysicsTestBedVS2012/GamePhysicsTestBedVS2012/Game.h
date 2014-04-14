@@ -3,11 +3,14 @@
 
 #include <ctime>
 #include <cassert>
+#include <cmath>
 
 #include "PhysicsDemo.h"
 #include "House.h"
 #include "Rock.h"
 
+#define NUM_ROCKS 3
+#define MAX_ROUNDS 3
 #define ROCK_MOVE_THREASHOLD 0.001
 #define START_TIMER 5
 #define SCORING_TIMER 5
@@ -59,6 +62,12 @@ private:
 	Object::Team m_activeTeam;
 	int m_scoreBlue, m_scoreRed;
 	int m_rocksBlue, m_rocksRed;
+	int m_round;
+
+	float m_limitsX;
+	float m_limitsY;
+	float m_limitsZ;
+	float m_limitZHog;
 
 	float m_startTimer;
 	float m_scoringTimer;
