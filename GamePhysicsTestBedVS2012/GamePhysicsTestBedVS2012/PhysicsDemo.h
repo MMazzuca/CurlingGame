@@ -1,6 +1,3 @@
-#ifndef PHYSICDEMO_H
-#define PHYSICDEMO_H
-
 #include "GamePhysicsTestBed.h"
 #include "btBulletDynamicsCommon.h"
 
@@ -11,5 +8,3 @@ public:
 
 		void CreateObjects();
 };
-
-#endif

@@ -1,25 +1,27 @@
-﻿Build started 13/04/2014 10:15:01 PM.
-     1>Project "C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012.vcxproj" on node 2 (Build target(s)).
+﻿Build started 4/14/2014 1:08:00 PM.
+     1>Project "C:\Users\100836575\Desktop\(Nolan)GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\src /IC:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Include /IC:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\FreeGLUT\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp main.cpp
-         Game.cpp
-         Generating Code...
-     1>c:\users\brian\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\game.cpp(173): warning C4715: 'Game::GetTeamRocks' : not all control paths return a value
-         Compiling...
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\100836575\Desktop\(Nolan)GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\src" /I"C:\Users\100836575\Desktop\(Nolan)GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Include" /I"C:\Users\100836575\Desktop\(Nolan)GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\FreeGLUT\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt GameObject.cpp GamePhysicsTestBed.cpp main.cpp Object.cpp PhysicsDemo.cpp vector.cpp
+         vector.cpp
+         PhysicsDemo.cpp
+         Object.cpp
          main.cpp
-     1>c:\users\brian\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\main.cpp(12): warning C4101: 's' : unreferenced local variable
+     1>c:\users\100836575\desktop\(nolan)gamephysicstestbedvs2012\gamephysicstestbedvs2012\main.cpp(11): warning C4101: 's' : unreferenced local variable
+         GamePhysicsTestBed.cpp
+     1>c:\users\100836575\desktop\(nolan)gamephysicstestbedvs2012\gamephysicstestbedvs2012\gamephysicstestbed.cpp(69): warning C4305: 'argument' : truncation from 'double' to 'GLclampf'
+     1>c:\users\100836575\desktop\(nolan)gamephysicstestbedvs2012\gamephysicstestbedvs2012\gamephysicstestbed.cpp(151): warning C4244: 'initializing' : conversion from 'unsigned long' to 'float', possible loss of data
+         GameObject.cpp
          Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Debug /LIBPATH:C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\lib /LIBPATH:C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Lib\Win32 opengl32.lib freeglut.lib BulletDynamics_vs2012_debug.lib BulletCollision_vs2012_debug.lib LinearMath_vs2012_debug.lib libovr.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.lib" /MACHINE:X86 Debug\Game.obj
-         Debug\GameObject.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\100836575\Desktop\(Nolan)GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\100836575\Desktop\(Nolan)GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Debug" /LIBPATH:"C:\Users\100836575\Desktop\(Nolan)GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\lib" /LIBPATH:"C:\Users\100836575\Desktop\(Nolan)GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Lib\Win32" opengl32.lib freeglut.lib BulletDynamics_vs2010_debug.lib BulletCollision_vs2010_debug.lib LinearMath_vs2010_debug.lib libovr.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\100836575\Desktop\(Nolan)GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.pdb" /SUBSYSTEM:CONSOLE,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\100836575\Desktop\(Nolan)GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.lib" /MACHINE:X86 Debug\GameObject.obj
          Debug\GamePhysicsTestBed.obj
-         Debug\House.obj
          Debug\main.obj
+         Debug\Object.obj
          Debug\PhysicsDemo.obj
          Debug\vector.obj
-         GamePhysicsTestBedVS2012.vcxproj -> C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.exe
-     1>Done Building Project "C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012.vcxproj" (Build target(s)).
+         GamePhysicsTestBedVS2012.vcxproj -> C:\Users\100836575\Desktop\(Nolan)GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.exe
+     1>Done Building Project "C:\Users\100836575\Desktop\(Nolan)GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.41
+Time Elapsed 00:00:07.74

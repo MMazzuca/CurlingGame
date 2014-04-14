@@ -3,8 +3,9 @@
 
 #include "btBulletDynamicsCommon.h"
 #include "OpenGLMotionState.h"
+#include "Object.h"
 
-class GameObject
+class GameObject:public Object
 {
 public:
 	GameObject(btCollisionShape* pShape, float mass, const btVector3 &color, const btVector3 &initialPosition = btVector3(0,0,0), const btQuaternion &initialRotation = btQuaternion(0,0,1,1));
@@ -22,10 +23,15 @@ public:
 	}
 	
 	btVector3 GetColor() { return m_color; }
+
+	virtual ObjectType getType()
+	{
+		return ObjectType::BASE;
+	}
 protected:
 	btCollisionShape*  m_pShape;
 	btRigidBody*    m_pBody;
-	OpenGLMotionState*  m_pMotionState;
+	//OpenGLMotionState*  m_pMotionState;
 	btVector3      m_color;
 
 };

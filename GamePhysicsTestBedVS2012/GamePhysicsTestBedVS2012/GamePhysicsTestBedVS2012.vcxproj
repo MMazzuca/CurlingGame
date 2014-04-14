@@ -19,8 +19,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -61,7 +61,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)..\Debug;$(ProjectDir)..\Bullet\lib;$(ProjectDir)..\LibOVR\Lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;freeglut.lib;BulletDynamics_vs2012_debug.lib;BulletCollision_vs2012_debug.lib;LinearMath_vs2012_debug.lib;libovr.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;freeglut.lib;BulletDynamics_vs2010_debug.lib;BulletCollision_vs2010_debug.lib;LinearMath_vs2010_debug.lib;libovr.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -87,7 +87,9 @@
     <ClCompile Include="GamePhysicsTestBed.cpp" />
     <ClCompile Include="House.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="PhysicsDemo.cpp" />
+    <ClCompile Include="Rock.cpp" />
     <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -96,8 +98,10 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GamePhysicsTestBed.h" />
     <ClInclude Include="House.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="OpenGLMotionState.h" />
     <ClInclude Include="PhysicsDemo.h" />
+    <ClInclude Include="Rock.h" />
     <ClInclude Include="vector.h" />
   </ItemGroup>
   <ItemGroup>
