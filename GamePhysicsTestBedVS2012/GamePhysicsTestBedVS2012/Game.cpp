@@ -47,7 +47,9 @@ void Game::UpdateScene(float dt)
 	switch (m_curGameState)
 	{
 	case GameState::START:  //at the start of the game
-		//imediatly change 
+		//clean up the sheet
+		RemoveRocks();
+
 		m_startTimer += dt;
 		if(m_startTimer > START_TIMER)
 		{

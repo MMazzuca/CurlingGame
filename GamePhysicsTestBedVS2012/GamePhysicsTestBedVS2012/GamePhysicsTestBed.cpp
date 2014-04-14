@@ -629,3 +629,18 @@ void GamePhysicsTestBed::RemoveGameObject(GameObject * obj)
 		m_objects.erase(it);
 	}
 }
+
+void GamePhysicsTestBed::RemoveRocks()
+{
+	for(GameObjects::iterator it = m_objects.begin(); it != m_objects.end();)
+	{
+		if(Object::ObjectType::ROCK == (*it)->getType())
+		{
+			m_pWorld->removeRigidBody((*it)->GetRigidBody());
+			delete *it;
+			it = m_objects.erase(it);
+		}
+		else
+			++it;
+	}
+}

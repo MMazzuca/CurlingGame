@@ -94,6 +94,7 @@ public:
 	GameObjects const* GetGameObjects() const;
 
 	void RemoveGameObject(GameObject * obj);
+	void RemoveRocks();
 
 protected:
 	// ADDED TO TODAY'S LECTURE STEP 8 CONSTRAINT VARIABLES

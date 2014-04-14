@@ -1,4 +1,7 @@
-  
+Bugs
+  shooting camera is in centre of sheet instead of end 
+
+ 
 From most to least important
   Rock curling
   Aiming Broomng
