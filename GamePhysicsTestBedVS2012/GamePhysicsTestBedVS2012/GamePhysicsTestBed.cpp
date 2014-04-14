@@ -21,10 +21,14 @@ m_pSolver(0),
 m_pWorld(0),
 m_pMotionState(0),
 isThrown(false),
-state(START),
-//ADDED TO TODAY'S LECTURE STEP 14
-/*ADD*/	m_pPickedBody(0),
-/*ADD*/	m_pPickConstraint(0)
+state(STATE::START),
+m_pPickedBody(0),
+m_pPickConstraint(0),
+m_shootAim(false),
+m_mouseAimStartX(0),
+m_shootAimMaxYaw(10.0f),
+m_shootAimMinYaw(-10.0f),
+m_shootPower(0)
 {
 }
 
@@ -74,35 +78,11 @@ void GamePhysicsTestBed::Initialize() {
 void GamePhysicsTestBed::Keyboard(unsigned char key, int x, int y) {
 	// This function is called by FreeGLUT whenever
 	// generic keys are pressed down.
-	switch(key) {
-		 //'z' zooms in
+	switch (key) {
+		//'z' zooms in
 	case 'z': ZoomCamera(+CAMERA_STEP_SIZE); break;
 		///'x' zoom out
 	case 'x': ZoomCamera(-CAMERA_STEP_SIZE); break;
-	// added in today's lecture step 3
-	case 'b':
-		/*ADD*/			{
-/*ADD*/				// create a temp object to store the raycast result
-/*ADD*/				RayResult result;
-/*ADD*/				// perform the raycast
-/*ADD*/				if (!Raycast(m_cameraPosition, GetPickingRay(x, y), result))
-/*ADD*/					return; // return if the test failed
-/*ADD*/				// destroy the corresponding game object
-/*ADD*/				DestroyGameObject(result.pBody);
-/*ADD*/				break;
-/*ADD*/			}
-		break;
-	case 'd':
- 		{
- 			// create a temp object to store the raycast result
- 			RayResult result;
- 			// perform the raycast
- 			if (!Raycast(m_cameraPosition, GetPickingRay(x, y), result))
- 				return; // return if the test failed
- 			// destroy the corresponding game object
- 			DestroyGameObject(result.pBody);
- 			break;
- 		}
 	}
 }
 
@@ -170,34 +150,7 @@ void GamePhysicsTestBed::Idle() {
 
 void GamePhysicsTestBed::Mouse(int button, int state, int x, int y) 
 {
-	
-	/*ADD*/		switch(button) {
-// added to today's lecture step 9
-		
-/*ADD*/		case 0:  // left mouse button
-/*ADD*/			{
-/*ADD*/				if (state == 0) { // button down
-/*ADD*/					// create the picking constraint when we click the LMB
-/*ADD*/					CreatePickingConstraint(x, y);
-/*ADD*/				} else { // button up
-/*ADD*/					// remove the picking constraint when we release the LMB
-/*ADD*/					RemovePickingConstraint();
-/*ADD*/				}
-/*ADD*/				break;
-/*ADD*/			}
-// added in today's lecture step 4
-/*ADD*/		case 2: // right mouse button
-/*ADD*/			{
-/*ADD*/				if (state == 0) { // pressed down
-/*ADD*/					// shoot a box
-/*ADD*/					ShootBox(GetPickingRay(x, y));
-                        isThrown = true;
-						this->state = THROWN;
-/*ADD*/				}
-/*ADD*/		
-/*ADD*/			break;
-/*ADD*/			}
-/*ADD*/		}
+
 }
 // ADDED IN TODAY'S LECTURE STEP 5
 
@@ -316,23 +269,6 @@ void GamePhysicsTestBed::PassiveMotion(int x, int y)
 // ADDED TO TODAY'S LECTURE STEP 10
 void GamePhysicsTestBed::Motion(int x, int y) 
 {
-	/*ADD*/		// did we pick a body with the LMB?
-/*ADD*/		if (m_pPickedBody) {
-/*ADD*/			btGeneric6DofConstraint* pickCon = static_cast<btGeneric6DofConstraint*>(m_pPickConstraint);
-/*ADD*/			if (!pickCon)
-/*ADD*/				return;
-/*ADD*/	
-/*ADD*/			// use another picking ray to get the target direction
-/*ADD*/			btVector3 dir = GetPickingRay(x,y) - m_cameraPosition;
-/*ADD*/			dir.normalize();
-/*ADD*/	
-/*ADD*/			// use the same distance as when we originally picked the object
-/*ADD*/			dir *= m_oldPickingDist;
-/*ADD*/			btVector3 newPivot = m_cameraPosition + dir;
-/*ADD*/	
-/*ADD*/			// set the position of the constraint
-/*ADD*/			pickCon->getFrameOffsetA().setOrigin(newPivot);
-/*ADD*/		}
 }
 
 
@@ -670,3 +606,11 @@ void GamePhysicsTestBed::CreatePickingConstraint(int x, int y)
 /*ADD*/		m_pPickedBody = 0;
 /*ADD*/	}
 //ADDED TO TODAY'S LECTURE STEP 12
+
+
+
+
+GameObjects const* GamePhysicsTestBed::GetGameObjects() const
+{
+	return &m_objects;
+}

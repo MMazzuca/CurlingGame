@@ -13,6 +13,7 @@ m_rocksBlue(0),
 m_rocksRed(0),
 m_scoringTimer(0)
 {
+	ChangeState(GameState::START);
 }
 
 
@@ -24,6 +25,12 @@ void Game::UpdateScene(float dt)
 	switch (m_curGameState)
 	{
 	case GameState::START:  //at the start of the game
+		//imediatly change 
+		m_startTimer += dt;
+		if(m_startTimer > START_TIMER)
+		{
+			ChangeState(GameState::SHOOTING);
+		}
 		break;
 
 	case GameState::END:  //at the end of the game
@@ -38,9 +45,15 @@ void Game::UpdateScene(float dt)
 		break;
 
 	case GameState::SHOOTING: //first person aiming and shooting
+		if(NULL != mptr_activeRock)
+		{
+			ChangeState(GameState::SWEEPING);
+		}
 		break;
 
 	case GameState::SWEEPING: //overhead view of rcok moving down sheet
+		assert(NULL != mptr_activeRock);
+
 		if (NULL != mptr_activeRock)
 		{
 			//check if rock is still moving
@@ -49,6 +62,7 @@ void Game::UpdateScene(float dt)
 				ChangeState(GameState::PLANING);
 			}
 		}
+			
 		break;
 
 	case GameState::SCORING: //overlooking the hosue showing rocks that are scoring
@@ -72,6 +86,7 @@ void Game::ChangeState(GameState newState)
 		{
 		case GameState::START:
 			m_rocksBlue = m_rocksRed = 3;
+			m_startTimer = 0;
 			break;
 
 		case GameState::END:
@@ -114,10 +129,11 @@ bool Game::ValidStateChange(GameState newState)
 {
 	bool isValid = false;
 
+
 	switch (m_curGameState)
 	{
 	case GameState::START:
-		isValid = newState == GameState::PLANING;
+		isValid = newState == GameState::START|| newState == GameState::PLANING;
 		break;
 
 	case GameState::END:
@@ -143,6 +159,23 @@ bool Game::ValidStateChange(GameState newState)
 
 	return isValid;
 }
+
+
+/*Rock * Game::ThrowRock()
+{
+	Rock * rock = Rock::ThrowRock();
+	
+	// push it to the back of the list
+	m_objects.push_back(rock);
+
+	// check if the world object is valid
+	if (m_pWorld)
+	{
+		// add the object's rigid body to the world
+		m_pWorld->addRigidBody(rock->GetRigidBody());
+	}
+	return rock;
+}*/
 
 void Game::SwitchTeams()
 {
@@ -170,6 +203,8 @@ int Game::GetTeamRocks(Team team)
 		return m_rocksRed;
 		break;
 	}
+
+	return Team::TEAM_BLUE;
 }
 
 void Game::UpdateTeamRocks(Team team, int change)
@@ -197,5 +232,114 @@ void Game::UpdateTeamScore(Team team, int change)
 	case Team::TEAM_RED:
 		m_scoreRed += change;
 		break;
+	}
+}
+
+
+void Game::Mouse(int button, int state, int x, int y) 
+{
+	GamePhysicsTestBed::Mouse(button, state, x, y);
+	
+	switch (m_curGameState)
+	{
+	case GameState::START:
+		break;
+
+	case GameState::END:
+		break;
+
+	case GameState::PLANING:
+		break;
+
+	case GameState::SHOOTING:
+		MouseShooting(button, state, x, y);
+		break;
+
+	case GameState::SWEEPING:
+		break;
+
+	case GameState::SCORING:
+		break;
+	}
+}
+
+void Game::MouseShooting(int button, int state, int x, int y)
+{
+	switch (button)
+	{
+
+	case 0:  // left mouse button
+		if (state == 0)
+		{
+			m_shootPower = 0;
+			m_shootPowerStart = std::clock();
+		}
+		else
+		{
+			m_shootPower = (std::clock() - m_shootPowerStart) / static_cast<float>(CLOCKS_PER_SEC);
+			ShootBox(GetPickingRay(m_screenWidth * 0.5f, m_screenWidth * 0.5f));
+			/*mptr_activeRock = ThrowRock(pos, team, dir, rotation, velocity);*/
+			
+
+			isThrown = true;
+			this->state = THROWN;
+		}
+		break;
+
+	case 2: // right mouse button
+		if (state == 0)
+		{
+			m_shootAim = true;
+			m_mouseAimStartX = x;
+		}
+		else
+		{
+			m_shootAim = false;
+		}
+
+		break;
+	}
+}
+
+
+void Game::Motion(int x, int y) 
+{
+	GamePhysicsTestBed::Motion(x, y);
+
+	switch (m_curGameState)
+	{
+	case GameState::START:
+		break;
+
+	case GameState::END:
+		break;
+
+	case GameState::PLANING:
+		break;
+
+	case GameState::SHOOTING:
+		MotionShooting(x, y);
+		break;
+
+	case GameState::SWEEPING:
+		break;
+
+	case GameState::SCORING:
+		break;
+	}
+
+}
+
+void Game::MotionShooting(int x, int y)
+{
+	if (m_shootAim)
+	{
+		m_cameraYaw += (m_mouseAimStartX - x) * 0.1f;
+		m_mouseAimStartX = x;
+		if (m_cameraYaw > m_shootAimMaxYaw)
+			m_cameraYaw = m_shootAimMaxYaw;
+		else if (m_cameraYaw < m_shootAimMinYaw)
+			m_cameraYaw = m_shootAimMinYaw;
+
 	}
 }
