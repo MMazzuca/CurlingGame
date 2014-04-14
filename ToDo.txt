@@ -1,19 +1,14 @@
-STAGE 1
-  Aim, shoot rock DONE
-  Switch camera (active stone overhead, house overhead, first person thrower) DONE
-  Game management
-  State Machine
-
-  
-STAGE 2
-  Rock curling
-  Scoring
-  Sounds
-  
   
 STAGE 3
+  Rock curling
+  Impliment sounds
+  HUD
   Models
   Sweeping
+  Aiming Broom
+  House Camera
+  
+  Start/End Screen
   
 
 
