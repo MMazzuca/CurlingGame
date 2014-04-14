@@ -19,8 +19,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110_xp</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -41,8 +41,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\OpenAlSoftSetup\OpenAlSoft\include\AL;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\LibOVR\Include;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\FreeGLUT\include\GL;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\Bullet\src;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\ALSound\OpenAlSoft\include\AL;$(IncludePath)</IncludePath>
-    <LibraryWPath>C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\OpenAlSoftSetup\OpenAlSoft\lib\Win32;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\LibOVR\Lib\Win32;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\FreeGLUT\lib\x86\Debug;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\Bullet\lib;C:\Users\nhunt\Desktop\GamePhysicsTestBedVS2012\ALSound\OpenAlSoft\lib\Win32;$(LibraryWPath)</LibraryWPath>
+    <IncludePath>$(SolutionDir)OpenAlSoftSetup\OpenAlSoft\include\AL;$(SolutionDir)LibOVR\Include;$(SolutionDir)FreeGLUT\include\GL;$(SolutionDir)Bullet\src;$(SolutionDir)ALSound\OpenAlSoft\include\AL;$(IncludePath)</IncludePath>
+    <LibraryWPath>$(SolutionDir)OpenAlSoftSetup\OpenAlSoft\lib\Win32;$(SolutionDir)LibOVR\Lib\Win32;$(SolutionDir)FreeGLUT\lib\x86\Debug;$(SolutionDir)Bullet\lib;$(SolutionDir)ALSound\OpenAlSoft\lib\Win32;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -61,7 +61,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)..\Debug;$(ProjectDir)..\Bullet\lib;$(ProjectDir)..\LibOVR\Lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;freeglut.lib;BulletDynamics_vs2010_debug.lib;BulletCollision_vs2010_debug.lib;LinearMath_vs2010_debug.lib;libovr.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;freeglut.lib;BulletDynamics_vs2012_debug.lib;BulletCollision_vs2012_debug.lib;LinearMath_vs2012_debug.lib;libovr.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -84,6 +84,7 @@
   <ItemGroup>
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePhysicsTestBed.cpp" />
+    <ClCompile Include="House.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PhysicsDemo.cpp" />
     <ClCompile Include="vector.cpp" />
@@ -92,6 +93,7 @@
     <ClInclude Include="FreeGLUTCallbacks.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GamePhysicsTestBed.h" />
+    <ClInclude Include="House.h" />
     <ClInclude Include="OpenGLMotionState.h" />
     <ClInclude Include="PhysicsDemo.h" />
     <ClInclude Include="vector.h" />

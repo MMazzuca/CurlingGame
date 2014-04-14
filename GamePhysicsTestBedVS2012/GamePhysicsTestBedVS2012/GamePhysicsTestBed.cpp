@@ -21,13 +21,13 @@ m_pSolver(0),
 m_pWorld(0),
 m_pMotionState(0),
 isThrown(false),
-state(START),
+state(STATE::START),
 m_pPickedBody(0),
 m_pPickConstraint(0),
 m_shootAim(false),
 m_mouseAimStartX(0),
-m_shootAimMaxYaw(10),
-m_shootAimMinYaw(-10),
+m_shootAimMaxYaw(10.0f),
+m_shootAimMinYaw(-10.0f),
 m_shootPower(0),
 curGameState(GameState::START)
 {
@@ -304,7 +304,7 @@ void GamePhysicsTestBed::Motion(int x, int y)
 {
 	if (m_shootAim)
 	{
-		m_cameraYaw += (m_mouseAimStartX - x) * 0.1;
+		m_cameraYaw += (m_mouseAimStartX - x) * 0.1f;
 		m_mouseAimStartX = x;
 		if (m_cameraYaw > m_shootAimMaxYaw)
 			m_cameraYaw = m_shootAimMaxYaw;
@@ -730,4 +730,11 @@ bool GamePhysicsTestBed::ValidStateChange(GameState newState)
 		isValid = newState == GameState::PLANING || newState == GameState::END;
 		break;
 	}
+
+	return isValid;
+}
+
+GameObjects const* GamePhysicsTestBed::GetGameObjects() const
+{
+	return &m_objects;
 }

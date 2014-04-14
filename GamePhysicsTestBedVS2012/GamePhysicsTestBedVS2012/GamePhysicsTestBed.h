@@ -26,10 +26,11 @@ typedef std::vector<GameObject*> GameObjects;
 
 using namespace OVR;
 
-enum STATE {START, THROWN};
+enum STATE { START, THROWN };
 
 class GamePhysicsTestBed {
 public:
+
 	enum GameState
 	{
 		START,
@@ -103,6 +104,8 @@ public:
 	void ChangeState(GameState newState);
 	bool ValidStateChange(GameState newState);
 
+	GameObjects const* GetGameObjects() const;
+
 protected:
 	// ADDED TO TODAY'S LECTURE STEP 8 CONSTRAINT VARIABLES
 	/*ADD*/		btRigidBody* m_pPickedBody;				// the body we picked up
@@ -122,8 +125,8 @@ protected:
 
 	bool m_shootAim;
 	int m_mouseAimStartX;
-	int m_shootAimMaxYaw;
-	int m_shootAimMinYaw;
+	float m_shootAimMaxYaw;
+	float m_shootAimMinYaw;
 	float m_shootPower;
 	std::clock_t m_shootPowerStart;
 
