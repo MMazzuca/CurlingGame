@@ -31,15 +31,6 @@ enum STATE { START, THROWN };
 class GamePhysicsTestBed {
 public:
 
-	enum GameState
-	{
-		START,
-		PLANING,
-		SHOOTING,
-		SWEEPING,
-		SCORING,
-		END
-	};
 
 	GamePhysicsTestBed();
 	~GamePhysicsTestBed();
@@ -100,9 +91,6 @@ public:
 	/*ADD*/		void CreatePickingConstraint(int x, int y);
 	/*ADD*/		void RemovePickingConstraint();
 
-	//State Machine
-	void ChangeState(GameState newState);
-	bool ValidStateChange(GameState newState);
 
 	GameObjects const* GetGameObjects() const;
 
@@ -130,7 +118,6 @@ protected:
 	float m_shootPower;
 	std::clock_t m_shootPowerStart;
 
-	GameState curGameState;
 
 	int m_screenWidth;
 	int m_screenHeight;

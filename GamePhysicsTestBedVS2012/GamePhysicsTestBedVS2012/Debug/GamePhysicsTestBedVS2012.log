@@ -1,10 +1,17 @@
-﻿Build started 13/04/2014 7:25:51 PM.
+﻿Build started 13/04/2014 10:15:01 PM.
      1>Project "C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\src /IC:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Include /IC:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\FreeGLUT\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt House.cpp
-         House.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\src /IC:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Include /IC:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\FreeGLUT\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp main.cpp
+         Game.cpp
+         Generating Code...
+     1>c:\users\brian\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\game.cpp(173): warning C4715: 'Game::GetTeamRocks' : not all control paths return a value
+         Compiling...
+         main.cpp
+     1>c:\users\brian\documents\github\curlinggame\gamephysicstestbedvs2012\gamephysicstestbedvs2012\main.cpp(12): warning C4101: 's' : unreferenced local variable
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Debug /LIBPATH:C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\lib /LIBPATH:C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Lib\Win32 opengl32.lib freeglut.lib BulletDynamics_vs2012_debug.lib BulletCollision_vs2012_debug.lib LinearMath_vs2012_debug.lib libovr.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.lib" /MACHINE:X86 Debug\GameObject.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Debug /LIBPATH:C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\Bullet\lib /LIBPATH:C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\GamePhysicsTestBedVS2012\..\LibOVR\Lib\Win32 opengl32.lib freeglut.lib BulletDynamics_vs2012_debug.lib BulletCollision_vs2012_debug.lib LinearMath_vs2012_debug.lib libovr.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Brian\Documents\GitHub\CurlingGame\GamePhysicsTestBedVS2012\Debug\GamePhysicsTestBedVS2012.lib" /MACHINE:X86 Debug\Game.obj
+         Debug\GameObject.obj
          Debug\GamePhysicsTestBed.obj
          Debug\House.obj
          Debug\main.obj
@@ -15,4 +22,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.51
+Time Elapsed 00:00:04.41

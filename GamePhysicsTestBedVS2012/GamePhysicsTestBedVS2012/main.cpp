@@ -3,6 +3,7 @@
 #include "al.h"
 #include "alc.h"
 #include "Sound.h"
+#include "Game.h"
 
 int main(int argc, char** argv)
 {
@@ -10,8 +11,8 @@ int main(int argc, char** argv)
 	ALCcontext* context = NULL;
 	Sound *s;
 
-	PhysicsDemo demo;
-	return glutmain(argc, argv, 1024, 768, "Game Physics 2012 Test Bed", &demo);
+	Game game;
+	return glutmain(argc, argv, 1024, 768, "Game Physics 2012 Test Bed", &game);
 
 
 }

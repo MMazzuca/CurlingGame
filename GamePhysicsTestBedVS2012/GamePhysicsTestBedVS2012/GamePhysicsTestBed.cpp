@@ -28,8 +28,7 @@ m_shootAim(false),
 m_mouseAimStartX(0),
 m_shootAimMaxYaw(10.0f),
 m_shootAimMinYaw(-10.0f),
-m_shootPower(0),
-curGameState(GameState::START)
+m_shootPower(0)
 {
 }
 
@@ -523,27 +522,6 @@ void GamePhysicsTestBed::ZoomCamera(float distance) {
 			// determined back in ::Idle() by our clock object.
 			m_pWorld->stepSimulation(dt);
 		}
-
-		switch (curGameState)
-		{
-		case GameState::START:  //at the start of the game
-			break;
-
-		case GameState::END:  //at the end of the game
-			break;
-
-		case GameState::PLANING: //overlooking the house when planing where to shoot
-			break;
-
-		case GameState::SHOOTING: //first person aiming and shooting
-			break;
-
-		case GameState::SWEEPING: //overhead view of rcok moving down sheet
-			break;
-
-		case GameState::SCORING: //overlooking the hosue showing rocks that are scoring
-			break;
-		}
 	}
 	void GamePhysicsTestBed::DrawShape(btScalar* transform, const btCollisionShape* pShape, const btVector3 &color) {
 	// set the color
@@ -673,66 +651,6 @@ void GamePhysicsTestBed::CreatePickingConstraint(int x, int y)
 
 
 
-void GamePhysicsTestBed::ChangeState(GameState newState)
-{
-	if (ValidStateChange(newState))
-	{
-		switch (newState)
-		{
-		case GameState::START:
-			break;
-
-		case GameState::END:
-			break;
-
-		case GameState::PLANING:
-			break;
-
-		case GameState::SHOOTING:
-			break;
-
-		case GameState::SWEEPING:
-			break;
-
-		case GameState::SCORING:
-			break;
-		}
-	}
-}
-
-bool GamePhysicsTestBed::ValidStateChange(GameState newState)
-{
-	bool isValid = false;
-
-	switch (curGameState)
-	{
-	case GameState::START:
-		isValid = newState == GameState::PLANING;
-		break;
-
-	case GameState::END:
-		isValid = newState == GameState::START;
-		break;
-
-	case GameState::PLANING:
-		isValid = newState == GameState::SHOOTING || newState == GameState::END;
-		break;
-
-	case GameState::SHOOTING:
-		isValid = newState == GameState::SWEEPING || newState == GameState::END;
-		break;
-
-	case GameState::SWEEPING:
-		isValid = newState == GameState::PLANING || newState == GameState::SCORING || newState == GameState::END;
-		break;
-
-	case GameState::SCORING:
-		isValid = newState == GameState::PLANING || newState == GameState::END;
-		break;
-	}
-
-	return isValid;
-}
 
 GameObjects const* GamePhysicsTestBed::GetGameObjects() const
 {
