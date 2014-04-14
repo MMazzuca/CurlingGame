@@ -82,6 +82,8 @@ void Game::UpdateScene(float dt)
 
 void Game::ChangeState(GameState newState)
 {
+	m_cameraYaw = 0;
+
 	if (ValidStateChange(newState))
 	{
 		switch (newState)
@@ -135,6 +137,8 @@ void Game::ChangeState(GameState newState)
 			break;
 		}
 	}
+
+	LazyHud();
 }
 
 bool Game::ValidStateChange(GameState newState)
@@ -349,4 +353,47 @@ void Game::MotionShooting(int x, int y)
 		else if (m_cameraYaw < m_shootAimMinYaw)
 			m_cameraYaw = m_shootAimMinYaw;
 	}
+}
+
+
+void Game::LazyHud() const
+{
+	system("CLS");
+
+	std::cout << "Welome to Curling" << std::endl;
+	std::cout << "=================" << std::endl;
+	std::cout << "Current Phase ";
+	
+	switch (m_curGameState)
+	{
+	case GameState::START:
+		std::cout << "Start";
+		break;
+
+	case GameState::END:
+		std::cout << "End";
+		break;
+
+	case GameState::PLANING:
+		std::cout << "Planing";
+		break;
+
+	case GameState::SHOOTING:
+		std::cout << "Shooting";
+		break;
+
+	case GameState::SWEEPING:
+		std::cout << "Sweeping";
+		break;
+
+	case GameState::SCORING:
+		std::cout << "Scoring";
+		break;
+	}
+	std::cout << std::endl;
+
+	std::cout << "Active Team: " << ( Object::Team::TEAM_BLUE == m_activeTeam ? "Blue" : "Red") << std::endl << std::endl;
+	std::cout << "Red:  " << m_scoreRed << std::endl;
+	std::cout << "Blue: " << m_scoreBlue << std::endl;
+
 }

@@ -50,6 +50,8 @@ public:
 	void Motion(int x, int y);
 	void MotionShooting(int x, int y);
 
+	void Game::LazyHud() const;
+
 private:
 	GameState m_curGameState;
 	House m_end;
