@@ -306,6 +306,11 @@ void Game::Mouse(int button, int state, int x, int y)
 {
 	GamePhysicsTestBed::Mouse(button, state, x, y);
 	
+	if(state == 0)
+	{
+		LazyHud();
+	}
+
 	switch (m_curGameState)
 	{
 	case GameState::START:
@@ -366,6 +371,8 @@ void Game::MouseShooting(int button, int state, int x, int y)
 
 void Game::Motion(int x, int y) 
 {
+	std::cout << "MOUSE!: (" << x << ", " << y << ")" << std::endl;
+	//LazyHud();
 	GamePhysicsTestBed::Motion(x, y);
 
 	switch (m_curGameState)
