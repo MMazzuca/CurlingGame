@@ -338,6 +338,7 @@ void GamePhysicsTestBed::UpdateCamera() {
 
 	// create a view matrix based on the camera's position and where it's
 	// looking
+	//Code added to allow us to switch to a different camera when the rock is thrown
 	switch(state)
 	{
 	case START:
@@ -609,7 +610,7 @@ void GamePhysicsTestBed::CreatePickingConstraint(int x, int y)
 
 
 
-
+//Functions created to handle objects and remove them.
 GameObjects const* GamePhysicsTestBed::GetGameObjects() const
 {
 	return &m_objects;
