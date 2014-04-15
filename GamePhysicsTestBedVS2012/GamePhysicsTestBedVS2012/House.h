@@ -1,3 +1,8 @@
+/********************************************\
+ * House class								*
+ * repesents the hosue, handles scoring.	*
+ * created by Brian							*
+\********************************************/
 #ifndef HOUSE_H
 #define HOUSE_H
 
@@ -19,6 +24,7 @@ public:
 
 private:
 	float m_size;
+	btVector3 m_pos;
 
 	bool House::FindClosest(GamePhysicsTestBed const* testBed, GameObjects & objects) const;
 };

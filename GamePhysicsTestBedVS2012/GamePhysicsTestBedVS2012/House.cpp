@@ -1,6 +1,6 @@
 #include "House.h"
 
-House::House(float size, btVector3 const& initialPosition) : m_size(size), GameObject(new btBoxShape(btVector3(1, 100, 100)), 0, initialPosition)
+House::House(float size, btVector3 const& initialPosition) : m_size(size), GameObject(new btBoxShape(btVector3(1, 100, 100)), 0, initialPosition), m_pos(initialPosition)
 {
 }
 
@@ -52,7 +52,9 @@ bool House::FindClosest(GamePhysicsTestBed const* testBed, GameObjects & scoring
 			motionState = (*it)->GetMotionState();
 			motionState->getWorldTransform(transform);
 
-			curDist = (transform.getOrigin() - houseTransform.getOrigin()).length();
+			//THis is not working.  Seams houseTransform.getOrigin() is always 0, 0, 0.  Trying saving the position in a variable
+			//curDist = (transform.getOrigin() - houseTransform.getOrigin()).length();
+			curDist = (transform.getOrigin() - m_pos).length();
 
 			isCanidate = curDist < m_size;
 

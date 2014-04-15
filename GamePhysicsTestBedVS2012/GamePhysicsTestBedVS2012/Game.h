@@ -1,3 +1,9 @@
+/********************************************\
+* Game class								*
+* extends PhysicsDemo from the test bed to	*
+* add the functionatly we need for the game.*
+* created by Brian							*
+\********************************************/
 #ifndef GAME_H
 #define GAME_H
 

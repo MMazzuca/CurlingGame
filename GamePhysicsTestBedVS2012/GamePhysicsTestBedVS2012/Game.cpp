@@ -31,7 +31,7 @@ m_round(0)
 	
 	
 	// create a ground plane
-	CreateGameObject(new btBoxShape(btVector3(1,12,100)), 0, btVector3(0.2f, 0.6f, 0.6f), btVector3(0.0f, 0.0f, 0.0f));
+	//CreateGameObject(new btBoxShape(btVector3(1,12,100)), 0, btVector3(0.2f, 0.6f, 0.6f), btVector3(0.0f, 0.0f, 0.0f));
 
 
 	ChangeState(GameState::START);
