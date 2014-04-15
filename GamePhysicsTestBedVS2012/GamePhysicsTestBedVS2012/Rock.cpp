@@ -1,5 +1,5 @@
 #include "Rock.h"
-Rock::Rock(btVector3 &initialPosition, Team) : GameObject(new btBoxShape(btVector3(1,1,1)), 1, btVector3 (1.0f, 1.0f, 1.0f), initialPosition)
+Rock::Rock(btVector3 &initialPosition, Team team) : GameObject(new btBoxShape(btVector3(1, 1, 1)), 1, (Object::Team::TEAM_BLUE == team ? btVector3(0.0f, 0.0f, 1.0f) : btVector3(1.0f, 0.0f, 0.0f)), initialPosition)
 {
 
 	 

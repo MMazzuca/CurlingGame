@@ -75,7 +75,7 @@ void Game::UpdateScene(float dt)
 		}
 		break;
 
-	case GameState::SWEEPING: //overhead view of rcok moving down sheet
+	case GameState::SWEEPING: //overhead view of rock moving down sheet
 		assert(NULL != mptr_activeRock);
 
 		if (NULL != mptr_activeRock)
