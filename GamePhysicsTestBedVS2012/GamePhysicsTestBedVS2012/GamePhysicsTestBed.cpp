@@ -338,6 +338,7 @@ void GamePhysicsTestBed::UpdateCamera() {
 
 	// create a view matrix based on the camera's position and where it's
 	// looking
+	//Created by us to switch the 
 	switch(state)
 	{
 	case START:
@@ -609,7 +610,7 @@ void GamePhysicsTestBed::CreatePickingConstraint(int x, int y)
 
 
 
-
+//Functions we created to handle and remove gameObjects such as the rock.
 GameObjects const* GamePhysicsTestBed::GetGameObjects() const
 {
 	return &m_objects;
